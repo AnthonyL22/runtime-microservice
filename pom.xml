@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>qcom.itlegal.ipit</groupId>
+    <artifactId>ipit-automation-runtime</artifactId>
+    <version>1.0.8-SNAPSHOT</version>
+
+    <properties>
+
+        <java_code.version>1.7</java_code.version>
+
+        <!--Driver KEYS-->
+        <chrome.win.driver.key>2.25/chromedriver_win32.zip</chrome.win.driver.key>
+        <chrome.linux32.driver.key>2.25/chromedriver_linux32.zip</chrome.linux32.driver.key>
+        <chrome.linux64.driver.key>2.25/chromedriver_linux64.zip</chrome.linux64.driver.key>
+        <chrome.mac32.driver.key>2.25/chromedriver_mac32.zip</chrome.mac32.driver.key>
+        <ie.win32.driver.key>2.53/IEDriverServer_Win32_2.53.1.zip</ie.win32.driver.key>
+        <ie.win64.driver.key>2.53/IEDriverServer_x64_2.53.1.zip</ie.win64.driver.key>
+        <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
+        <gecko.win64.driver.key>v0.11.1/geckodriver-v0.11.1-win64.zip</gecko.win64.driver.key>
+
+        <!--Plugin Versions-->
+        <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
+        <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
+        <maven-assembly-plugin.version>2.5.5</maven-assembly-plugin.version>
+        <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
+        <maven-release-plugin.version>2.3.2</maven-release-plugin.version>
+        <maven-scm-provider-gitxexe.version>1.9</maven-scm-provider-gitxexe.version>
+        <versions-maven-plugin.version>2.1</versions-maven-plugin.version>
+        <maven-resources-plugin.version>2.7</maven-resources-plugin.version>
+        <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
+        <maven-surefire-plugin.version>2.14</maven-surefire-plugin.version>
+        <maven-scm-plugin.version>1.8.1</maven-scm-plugin.version>
+
+        <!-- Dependency Versions -->
+        <ipit-automation-service.version>1.0.18</ipit-automation-service.version>
+        <surefire.junit.version>2.18.1</surefire.junit.version>
+        <jacoco.version>0.7.5.201505241946</jacoco.version>
+        <mockito.version>1.10.19</mockito.version>
+        <junit.version>4.11</junit.version>
+
+    </properties>
+
+    <scm>
+        <connection>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime</connection>
+        <developerConnection>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime
+        </developerConnection>
+        <url>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime</url>
+        <tag>HEAD</tag>
+    </scm>
+
+    <developers>
+        <developer>
+            <name>Anthony Lombardo</name>
+            <email>AnthonyL22@gmail.com</email>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>The Clear BSD License</name>
+            <url>http://svn.openlayers.org/trunk/openlayers/license.txt</url>
+            <comments>For any parts of OpenLayers</comments>
+            <distribution>manual</distribution>
+        </license>
+    </licenses>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>qcom.itlegal.ipit</groupId>
+            <artifactId>ipit-automation-service</artifactId>
+            <version>${ipit-automation-service.version}</version>
+        </dependency>
+
+        <!-- Unit Test Dependencies -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>${exec-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>fetch-drivers-api</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>java</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>
+                                <argument>${gecko.win64.driver.key}</argument>
+                                <argument>${chrome.win.driver.key}</argument>
+                                <argument>${chrome.linux32.driver.key}</argument>
+                                <argument>${chrome.linux64.driver.key}</argument>
+                                <argument>${chrome.mac32.driver.key}</argument>
+                                <argument>${ie.win32.driver.key}</argument>
+                                <argument>${ie.win64.driver.key}</argument>
+                                <argument>${safari.driver.key}</argument>
+                            </arguments>
+                            <mainClass>qcom.itlegal.ipit.runtime.DriverManager</mainClass>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>${maven-assembly-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>create-zip-distribution</id>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <descriptors>
+                        <descriptor>src/main/assembly/zip.xml</descriptor>
+                    </descriptors>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-clean-plugin</artifactId>
+                <version>${maven-clean-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>cleanup-unzipping</id>
+                        <phase>test-compile</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                        <configuration>
+                            <excludeDefaultDirectories>true</excludeDefaultDirectories>
+                            <filesets>
+                                <fileset>
+                                    <directory>${project.build.outputDirectory}/grid</directory>
+                                </fileset>
+                                <fileset>
+                                    <directory>${project.build.outputDirectory}/drivers</directory>
+                                </fileset>
+                            </filesets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>${maven-release-plugin.version}</version>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.scm</groupId>
+                        <artifactId>maven-scm-provider-gitexe</artifactId>
+                        <version>${maven-scm-provider-gitxexe.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>${versions-maven-plugin.version}</version>
+            </plugin>
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+                <version>${jacoco.version}</version>
+                <executions>
+                    <execution>
+                        <id>default-prepare-agent</id>
+                        <goals>
+                            <goal>prepare-agent</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-prepare-agent-integration</id>
+                        <goals>
+                            <goal>prepare-agent-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report</id>
+                        <goals>
+                            <goal>report</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-report-integration</id>
+                        <goals>
+                            <goal>report-integration</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>default-check</id>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                        <configuration>
+                            <rules>
+                            </rules>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-scm-plugin</artifactId>
+                <version>${maven-scm-plugin.version}</version>
+                <configuration>
+                    <tag>${project.artifactId}-${project.version}</tag>
+                </configuration>
+            </plugin>
+        </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven-compiler-plugin.version}</version>
+                    <configuration>
+                        <source>${java_code.version}</source>
+                        <target>${java_code.version}</target>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${maven-surefire-plugin.version}</version>
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.apache.maven.surefire</groupId>
+                            <artifactId>surefire-junit47</artifactId>
+                            <version>${surefire.junit.version}</version>
+                        </dependency>
+                    </dependencies>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <repositories>
+
+        <repository>
+            <id>legalIT-nexus</id>
+            <name>Legal IT Repo</name>
+            <url>http://maven/content/groups/legalit</url>
+        </repository>
+
+    </repositories>
+
+    <distributionManagement>
+
+        <repository>
+            <id>legalIT-nexus</id>
+            <name>Legal IT Releases</name>
+            <url>http://maven.qualcomm.com/content/repositories/legal_it_releases</url>
+            <uniqueVersion>true</uniqueVersion>
+        </repository>
+
+        <snapshotRepository>
+            <id>legalIT-nexus</id>
+            <name>Legal IT Snapshots</name>
+            <url>http://maven.qualcomm.com/content/repositories/legal_it_snapshot</url>
+            <uniqueVersion>false</uniqueVersion>
+        </snapshotRepository>
+
+    </distributionManagement>
+
+</project>

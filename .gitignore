@@ -1,0 +1,7 @@
+# Compiled Source Dir
+*/target/*
+/target/*
+
+# IntelliJ Dir
+.idea/
+*.iml

@@ -1,0 +1,3 @@
+echo Starting Selenium Node on Linux ENV...
+
+java -jar selenium-server-standalone-2.52.0.jar -role node -nodeConfig "defaultNodeConfig.json" -Dwebdriver.chrome.driver="../drivers/chrome/chrome_linux_64"

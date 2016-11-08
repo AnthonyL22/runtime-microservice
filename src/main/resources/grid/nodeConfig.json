@@ -1,0 +1,59 @@
+{
+  "capabilities": [
+    {
+      "browserName": "chrome",
+      "platform": "WINDOWS",
+      "maxInstances": 10
+    },
+    {
+      "browserName": "firefox",
+      "platform": "WINDOWS",
+      "maxInstances": 10
+    },
+    {
+      "browserName": "internet explorer",
+      "platform": "WINDOWS",
+      "maxInstances": 1
+    },
+    {
+      "browserName": "htmlunit",
+      "version": "firefox",
+      "platform": "ANY",
+      "seleniumProtocol": "WebDriver",
+      "maxInstances": 10
+    },
+    {
+      "browserName": "htmlunit",
+      "version": "chrome",
+      "platform": "ANY",
+      "seleniumProtocol": "WebDriver",
+      "maxInstances": 10
+    },
+    {
+      "browserName": "htmlunit",
+      "version": "internet explorer",
+      "platform": "ANY",
+      "seleniumProtocol": "WebDriver",
+      "maxInstances": 10
+    },
+    {
+      "browserName": "phantomjs",
+      "maxInstances": 10,
+      "platform": "ANY",
+      "seleniumProtocol": "WebDriver"
+    }
+  ],
+  "configuration": {
+    "nodeTimeout": 120,
+    "port": 5555,
+    "hubPort": 4444,
+    "hubHost": "localhost",
+    "nodePolling": 2000,
+    "registerCycle": 10000,
+    "register": true,
+    "cleanUpCycle": 2000,
+    "timeout": 300000,
+    "browserTimeout": 300000,
+    "maxSession": 10
+  }
+}
