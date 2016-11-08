@@ -2,7 +2,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>qcom.itlegal.ipit</groupId>
+    <groupId>com.pwc.runtime</groupId>
     <artifactId>runtime-microservice</artifactId>
     <name>Runtime Microservice</name>
     <version>1.0.0-SNAPSHOT</version>
@@ -20,8 +20,17 @@
         <ie.win64.driver.key>2.53/IEDriverServer_x64_2.53.1.zip</ie.win64.driver.key>
         <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
         <gecko.win64.driver.key>v0.11.1/geckodriver-v0.11.1-win64.zip</gecko.win64.driver.key>
+        
+        <!-- MS Dependency Versions -->
+        <core-microservice.version>2.0.0-SNAPSHOT</core-microservice.version>
+        
+        <!-- Dependency Versions -->
+        <surefire.junit.version>2.18.1</surefire.junit.version>
+        <jacoco.version>0.7.5.201505241946</jacoco.version>
+        <mockito.version>1.10.19</mockito.version>
+        <junit.version>4.11</junit.version>
 
-        <!--Plugin Versions-->
+        <!-- Plugin Versions -->
         <maven-jar-plugin.version>2.4</maven-jar-plugin.version>
         <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
         <maven-assembly-plugin.version>2.5.5</maven-assembly-plugin.version>
@@ -34,12 +43,6 @@
         <maven-surefire-plugin.version>2.14</maven-surefire-plugin.version>
         <maven-scm-plugin.version>1.8.1</maven-scm-plugin.version>
 
-        <!-- Dependency Versions -->
-        <ipit-automation-service.version>1.0.18</ipit-automation-service.version>
-        <surefire.junit.version>2.18.1</surefire.junit.version>
-        <jacoco.version>0.7.5.201505241946</jacoco.version>
-        <mockito.version>1.10.19</mockito.version>
-        <junit.version>4.11</junit.version>
 
     </properties>
 
@@ -70,12 +73,11 @@
     <dependencies>
 
         <dependency>
-            <groupId>qcom.itlegal.ipit</groupId>
-            <artifactId>ipit-automation-service</artifactId>
-            <version>${ipit-automation-service.version}</version>
+            <groupId>com.pwc.core</groupId>
+            <artifactId>core-microservice</artifactId>
+            <version>${core-microservice.version}</version>
         </dependency>
 
-        <!-- Unit Test Dependencies -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
