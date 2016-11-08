@@ -43,10 +43,10 @@
     </properties>
 
     <scm>
-        <connection>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime</connection>
-        <developerConnection>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime
+        <connection>scm:git:https://github.com/AnthonyL22/runtime-microservice</connection>
+        <developerConnection>scm:git:https://github.com/AnthonyL22/runtime-microservice
         </developerConnection>
-        <url>scm:git:https://github.qualcomm.com/bcs-ip-applications/ipit-automation-runtime</url>
+        <url>scm:git:https://github.com/AnthonyL22/runtime-microservice</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -255,7 +255,7 @@
         </pluginManagement>
     </build>
 
-    <repositories>
+<!--     <repositories>
 
         <repository>
             <id>legalIT-nexus</id>
@@ -281,6 +281,6 @@
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
 
-    </distributionManagement>
+    </distributionManagement> -->
 
 </project>
