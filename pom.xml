@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>qcom.itlegal.ipit</groupId>
-    <artifactId>ipit-automation-runtime</artifactId>
+    <artifactId>runtime-microservice</artifactId>
     <name>Runtime Microservice</name>
     <version>1.0.0-SNAPSHOT</version>
 
