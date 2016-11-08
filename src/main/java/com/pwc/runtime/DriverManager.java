@@ -1,8 +1,8 @@
-package qcom.itlegal.ipit.runtime;
+package com.pwc.runtime;
 
+import com.pwc.core.framework.util.PropertiesUtils;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
-import qcom.itlegal.ipit.framework.util.PropertiesUtils;
 
 import java.io.File;
 import java.io.FileInputStream;

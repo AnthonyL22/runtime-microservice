@@ -53,9 +53,9 @@ The Maven logic below will unpack the driver and grid artifacts in your project'
 
 ```
 <dependency>
-    <groupId>qcom.itlegal.ipit</groupId>
-    <artifactId>ipit-automation-runtime</artifactId>
-    <version>1.0.6</version>
+    <groupId>com.pwc.runtime</groupId>
+    <artifactId>runtime-microservice</artifactId>
+    <version>1.0.0</version>
     <classifier>bin</classifier>
     <type>zip</type>
 </dependency>
@@ -73,8 +73,8 @@ The Maven logic below will unpack the driver and grid artifacts in your project'
             <configuration>
                 <artifactItems>
                     <artifactItem>
-                        <groupId>qcom.itlegal.ipit</groupId>
-                        <artifactId>ipit-automation-runtime</artifactId>
+                        <groupId>com.pwc.runtime</groupId>
+                        <artifactId>runtime-microservice</artifactId>
                         <classifier>bin</classifier>
                         <type>zip</type>
                         <overWrite>true</overWrite>

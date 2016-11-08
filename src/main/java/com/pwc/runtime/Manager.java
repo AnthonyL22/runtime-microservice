@@ -1,4 +1,4 @@
-package qcom.itlegal.ipit.runtime;
+package com.pwc.runtime;
 
 import com.jayway.restassured.path.json.JsonPath;
 import org.apache.commons.lang3.StringUtils;
