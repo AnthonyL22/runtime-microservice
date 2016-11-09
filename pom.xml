@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.pwc.runtime</groupId>
@@ -20,10 +21,10 @@
         <ie.win64.driver.key>2.53/IEDriverServer_x64_2.53.1.zip</ie.win64.driver.key>
         <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
         <gecko.win64.driver.key>v0.11.1/geckodriver-v0.11.1-win64.zip</gecko.win64.driver.key>
-        
+
         <!-- MS Dependency Versions -->
         <core-microservice.version>2.0.0-SNAPSHOT</core-microservice.version>
-        
+
         <!-- Dependency Versions -->
         <surefire.junit.version>2.18.1</surefire.junit.version>
         <jacoco.version>0.7.5.201505241946</jacoco.version>
@@ -43,6 +44,7 @@
         <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
         <maven-surefire-plugin.version>2.14</maven-surefire-plugin.version>
         <maven-scm-plugin.version>1.8.1</maven-scm-plugin.version>
+        <maven-javadoc-plugin.version>2.10.4</maven-javadoc-plugin.version>
 
     </properties>
 
@@ -102,6 +104,11 @@
 
     <build>
         <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${maven-javadoc-plugin.version}</version>
+            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>exec-maven-plugin</artifactId>
@@ -264,32 +271,32 @@
         </pluginManagement>
     </build>
 
-<!--     <repositories>
+    <!--     <repositories>
 
-        <repository>
-            <id>legalIT-nexus</id>
-            <name>Legal IT Repo</name>
-            <url>http://maven/content/groups/legalit</url>
-        </repository>
+            <repository>
+                <id>legalIT-nexus</id>
+                <name>Legal IT Repo</name>
+                <url>http://maven/content/groups/legalit</url>
+            </repository>
 
-    </repositories>
+        </repositories>
 
-    <distributionManagement>
+        <distributionManagement>
 
-        <repository>
-            <id>legalIT-nexus</id>
-            <name>Legal IT Releases</name>
-            <url>http://maven.qualcomm.com/content/repositories/legal_it_releases</url>
-            <uniqueVersion>true</uniqueVersion>
-        </repository>
+            <repository>
+                <id>legalIT-nexus</id>
+                <name>Legal IT Releases</name>
+                <url>http://maven.qualcomm.com/content/repositories/legal_it_releases</url>
+                <uniqueVersion>true</uniqueVersion>
+            </repository>
 
-        <snapshotRepository>
-            <id>legalIT-nexus</id>
-            <name>Legal IT Snapshots</name>
-            <url>http://maven.qualcomm.com/content/repositories/legal_it_snapshot</url>
-            <uniqueVersion>false</uniqueVersion>
-        </snapshotRepository>
+            <snapshotRepository>
+                <id>legalIT-nexus</id>
+                <name>Legal IT Snapshots</name>
+                <url>http://maven.qualcomm.com/content/repositories/legal_it_snapshot</url>
+                <uniqueVersion>false</uniqueVersion>
+            </snapshotRepository>
 
-    </distributionManagement> -->
+        </distributionManagement> -->
 
 </project>

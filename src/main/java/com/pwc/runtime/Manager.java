@@ -59,7 +59,8 @@ public class Manager {
     /**
      * Get driver JSON Content for a given version
      *
-     * @param url driver URL
+     * @param url       driver URL
+     * @param targetKey filename of driver artifact (zip, rar, etc...)  to download
      * @return map of driver contents
      */
     protected static HashMap getDriverContentByKey(final URL url, String targetKey) {

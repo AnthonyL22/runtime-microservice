@@ -44,6 +44,12 @@ public class DriverManager extends Manager {
     private static URL phantomJsUrl;
     private static URL geckoUrl;
 
+    /**
+     * Entry point to Driver Manager application used to download and un-package/unzip drivers accordingly
+     *
+     * @param keys program arguments of filename of driver artifact to download.
+     *             For example "v0.11.1/geckodriver-v0.11.1-win64.zip"
+     */
     public static void main(String[] keys) {
 
         try {
@@ -104,6 +110,14 @@ public class DriverManager extends Manager {
 
     }
 
+    /**
+     * Download the driver(s) from the web
+     *
+     * @param targetFile complete path to target file to download
+     * @param driverUrl  target file URL location on the web
+     * @param key        exact filename of driver artifact to download
+     * @return success/fail flag of a successful download
+     */
     protected static boolean downloadDriver(File targetFile, URL driverUrl, String key) {
 
         StringBuilder url = new StringBuilder();
