@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.anthonyl22.runtime</groupId>
+    <groupId>com.pacificwebconsulting.runtime</groupId>
     <artifactId>runtime-microservice</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <name>Runtime Microservice</name>
@@ -79,7 +79,7 @@
     <dependencies>
 
         <dependency>
-            <groupId>com.github.anthonyl22.core</groupId>
+            <groupId>com.pacificwebconsulting.core</groupId>
             <artifactId>core-microservice</artifactId>
             <version>${core-microservice.version}</version>
         </dependency>
