@@ -5,8 +5,10 @@
 
     <groupId>com.pwc.runtime</groupId>
     <artifactId>runtime-microservice</artifactId>
-    <name>Runtime Microservice</name>
     <version>1.0.0-SNAPSHOT</version>
+    <name>Runtime Microservice</name>
+    <description>Runtime drivers and GRID components microservice</description>
+    <url>https://github.com/AnthonyL22/runtime-microservice</url>
 
     <properties>
 
