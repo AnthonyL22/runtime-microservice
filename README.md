@@ -53,7 +53,7 @@ The Maven logic below will unpack the driver and grid artifacts in your project'
 
 ```
 <dependency>
-    <groupId>com.pwc.runtime</groupId>
+    <groupId>com.pacificwebconsulting.runtime</groupId>
     <artifactId>runtime-microservice</artifactId>
     <version>1.0.0</version>
     <classifier>bin</classifier>
