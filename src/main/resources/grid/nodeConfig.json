@@ -1,40 +1,20 @@
 {
-  "capabilities": [
-    {
-      "browserName": "chrome",
-      "platform": "WINDOWS",
-      "maxInstances": 10
-    },
+  "capabilities":
+  [
     {
       "browserName": "firefox",
-      "platform": "WINDOWS",
-      "maxInstances": 10
+      "maxInstances": 10,
+      "seleniumProtocol": "WebDriver"
+    },
+    {
+      "browserName": "chrome",
+      "maxInstances": 10,
+      "seleniumProtocol": "WebDriver"
     },
     {
       "browserName": "internet explorer",
-      "platform": "WINDOWS",
-      "maxInstances": 1
-    },
-    {
-      "browserName": "htmlunit",
-      "version": "firefox",
-      "platform": "ANY",
-      "seleniumProtocol": "WebDriver",
-      "maxInstances": 10
-    },
-    {
-      "browserName": "htmlunit",
-      "version": "chrome",
-      "platform": "ANY",
-      "seleniumProtocol": "WebDriver",
-      "maxInstances": 10
-    },
-    {
-      "browserName": "htmlunit",
-      "version": "internet explorer",
-      "platform": "ANY",
-      "seleniumProtocol": "WebDriver",
-      "maxInstances": 10
+      "maxInstances": 1,
+      "seleniumProtocol": "WebDriver"
     },
     {
       "browserName": "phantomjs",
@@ -43,17 +23,19 @@
       "seleniumProtocol": "WebDriver"
     }
   ],
-  "configuration": {
-    "nodeTimeout": 120,
-    "port": 5555,
-    "hubPort": 4444,
-    "hubHost": "localhost",
-    "nodePolling": 2000,
-    "registerCycle": 10000,
-    "register": true,
-    "cleanUpCycle": 2000,
-    "timeout": 300000,
-    "browserTimeout": 300000,
-    "maxSession": 10
-  }
+  "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+  "maxSession": 5,
+  "port": 5555,
+  "register": true,
+  "registerCycle": 5000,
+  "hub": "http://localhost:4444",
+  "nodeStatusCheckTimeout": 5000,
+  "nodePolling": 5000,
+  "role": "node",
+  "unregisterIfStillDownAfter": 60000,
+  "downPollingLimit": 2,
+  "debug": false,
+  "servlets" : [],
+  "withoutServlets": [],
+  "custom": {}
 }

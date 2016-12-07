@@ -1,3 +1,3 @@
 echo Starting Selenium Node...
 
-java -jar selenium-server-standalone-2.52.0.jar -role node -nodeConfig "nodeConfig.json" -Dwebdriver.chrome.driver="../drivers/chrome/chrome_win.exe" -Dwebdriver.ie.driver="../drivers/ie/ie_win64.exe"
+java -jar -Dwebdriver.chrome.driver="../drivers/chrome/chrome_win.exe" -Dwebdriver.ie.driver="../drivers/ie/ie_win64.exe" -Dwebdriver.gecko.driver="../drivers/firefox/geckodriver.exe" selenium-server-standalone-3.0.1.jar -role node -nodeConfig "nodeConfig.json"
