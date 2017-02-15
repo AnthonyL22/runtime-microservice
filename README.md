@@ -10,6 +10,10 @@ Consumers of this project simply need to include this as a dependency and unzip 
   1. The runtime components for Selenium GRID
   2. The desired version(s) of supported Selenium Drivers
   
+# Questions and issues
+
+The [github issue tracker](https://github.com/AnthonyL22/runtime-microservice/issues) is **_only_** for bug reports and 
+feature requests. Anything else, such as questions for help in using the library, should be [emailed to our team](http://www.pacificwebconsulting.com/contact/).  
 
 # Technology
 
