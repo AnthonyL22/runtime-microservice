@@ -1,6 +1,13 @@
+<a href="http://www.pacificwebconsulting.com/" target="_blank">
+    <img src="http://www.pacificwebconsulting.com/wp-content/uploads/2016/11/PWC_logo_sm.jpg" alt="Automated Testing Solutions"
+         title="Automated Testing Solutions" align="right" />
+</a>
+
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pacificwebconsulting.runtime/runtime-microservice/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.pacificwebconsulting.runtime/runtime-microservice)
 
-## Purpose
+Got a question?  [Email us](http://www.pacificwebconsulting.com/contact/) or reach out on [LinkedIn](https://www.linkedin.com/in/alombardo/) 
+
+# Introduction
 
 This microservice is to make available the following two components necessary for Selenium-based & TestNG automated testing projects to run in distributed test environment(s).  
 Consumers of this project simply need to include this as a dependency and unzip the artifact in a desired location for general use.
@@ -9,14 +16,14 @@ Consumers of this project simply need to include this as a dependency and unzip 
   2. The desired version(s) of supported Selenium Drivers
   
 
-## Technology
+# Technology
 
 This project is designed to have the flexibility of going to the open-source communities on the web to dynamically fetch 
 Selenium Drivers (for example: http://chromedriver.storage.googleapis.com/).  Rather than have hard-coded, potentially 
 stale drivers embedded in your system, this microservice dynamically downloads, unzips, and integrates the supported 
 Drivers used by Selenium in your project(s).  
 
-### Driver APIs
+## Driver APIs
 
 [Chrome Drivers](http://chromedriver.storage.googleapis.com/) 
 
@@ -44,11 +51,11 @@ rebuild.
  ```
 
 
-## Prerequisites
+# Prerequisites
 
 1. Maven 3.x
 
-## Maven Dependency
+# Maven Dependency
 
 The Maven logic below will unpack the driver and grid artifacts in your project's target directory for immediate use.  Simply,
  add the dependency and plugin below to your POM.xml.
@@ -92,17 +99,13 @@ The Maven logic below will unpack the driver and grid artifacts in your project'
 </plugin>
 ```
 
-## Jenkins Job
-
-The [Jenkins job](http://ipit-automation.qualcomm.com:8080/view/Microservices/job/ipit-automation-runtime/) is available
-
-## Integration
+# Integration
 
 Simply add dependency to your Maven-based automation module/project.  Then, when **mvn clean install** is performed all
 the necessary drivers and grid components necessary will be downloaded to your **.../target/test-classes** directory
 for use by your test.
 
-## Selenium GRID
+# Selenium GRID
 
 A fully functional Selenium Grid HOST and NODE are available when using this runtime framework.  Simply, go to your
 **.../target/test-classes/grid** directory and perform the following in order according to your operating system:
