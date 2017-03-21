@@ -1,8 +1,3 @@
-<a href="http://www.pacificwebconsulting.com/" target="_blank">
-    <img src="http://www.pacificwebconsulting.com/wp-content/uploads/2016/11/PWC_logo_sm.jpg" alt="Automated Testing Solutions"
-         title="Automated Testing Solutions" align="right" />
-</a>
-
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.pacificwebconsulting.runtime/runtime-microservice/badge.svg?style=plastic)](https://maven-badges.herokuapp.com/maven-central/com.pacificwebconsulting.runtime/runtime-microservice)
 
 Got a question?  [Email us](http://www.pacificwebconsulting.com/contact/) or reach out on [LinkedIn](https://www.linkedin.com/in/alombardo/) 
@@ -15,6 +10,10 @@ Consumers of this project simply need to include this as a dependency and unzip 
   1. The runtime components for Selenium GRID
   2. The desired version(s) of supported Selenium Drivers
   
+# Questions and issues
+
+The [github issue tracker](https://github.com/AnthonyL22/runtime-microservice/issues) is **_only_** for bug reports and 
+feature requests. Anything else, such as questions for help in using the library, should be [emailed to our team](http://www.pacificwebconsulting.com/contact/).  
 
 # Technology
 
