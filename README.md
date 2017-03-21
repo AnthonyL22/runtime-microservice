@@ -37,18 +37,17 @@ Drivers used by Selenium in your project(s).
 To change the version of the drivers you'd like to use simply change the Driver Key properties in the POM.xml file and 
 rebuild.
  
- ```
+```
     <!--Driver KEYS-->
-    <chrome.win.driver.key>2.21/chromedriver_win32.zip</chrome.win.driver.key>
-    <chrome.linux32.driver.key>2.21/chromedriver_linux32.zip</chrome.linux32.driver.key>
-    <chrome.linux64.driver.key>2.21/chromedriver_linux64.zip</chrome.linux64.driver.key>
-    <chrome.mac32.driver.key>2.21/chromedriver_mac32.zip</chrome.mac32.driver.key>
-    <ie.win32.driver.key>2.51/IEDriverServer_Win32_2.51.0.zip</ie.win32.driver.key>
-    <ie.win64.driver.key>2.51/IEDriverServer_x64_2.51.0.zip</ie.win64.driver.key>
+    <chrome.win.driver.key>2.28/chromedriver_win32.zip</chrome.win.driver.key>
+    <chrome.linux32.driver.key>2.28/chromedriver_linux32.zip</chrome.linux32.driver.key>
+    <chrome.linux64.driver.key>2.28/chromedriver_linux64.zip</chrome.linux64.driver.key>
+    <chrome.mac32.driver.key>2.28/chromedriver_mac32.zip</chrome.mac32.driver.key>
+    <ie.win32.driver.key>3.0/IEDriverServer_Win32_3.0.0.zip</ie.win32.driver.key>
+    <ie.win64.driver.key>3.0/IEDriverServer_x64_3.0.0.zip</ie.win64.driver.key>
     <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
     <gecko.win64.driver.key>v0.11.1/geckodriver-v0.11.1-win64.zip</gecko.win64.driver.key>
- ```
-
+```
 
 # Prerequisites
 
