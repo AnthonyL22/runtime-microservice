@@ -4,7 +4,7 @@
 
     <groupId>com.pacificwebconsulting.runtime</groupId>
     <artifactId>runtime-microservice</artifactId>
-    <version>1.0.5-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <name>Runtime Microservice</name>
     <description>Runtime drivers and GRID components microservice</description>
     <url>https://github.com/AnthonyL22/runtime-microservice</url>
