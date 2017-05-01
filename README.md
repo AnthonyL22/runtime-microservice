@@ -39,6 +39,7 @@ rebuild.
  
 ```
     <!--Driver KEYS-->
+    <selenium.server.standalone.driver.key>3.4/selenium-server-standalone-3.4.0.jar</selenium.server.standalone.driver.key>
     <chrome.win.driver.key>2.28/chromedriver_win32.zip</chrome.win.driver.key>
     <chrome.linux32.driver.key>2.28/chromedriver_linux32.zip</chrome.linux32.driver.key>
     <chrome.linux64.driver.key>2.28/chromedriver_linux64.zip</chrome.linux64.driver.key>
@@ -46,7 +47,7 @@ rebuild.
     <ie.win32.driver.key>3.0/IEDriverServer_Win32_3.0.0.zip</ie.win32.driver.key>
     <ie.win64.driver.key>3.0/IEDriverServer_x64_3.0.0.zip</ie.win64.driver.key>
     <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
-    <gecko.win64.driver.key>v0.11.1/geckodriver-v0.11.1-win64.zip</gecko.win64.driver.key>
+    <gecko.win64.driver.key>v0.16.1/geckodriver-v0.16.1-win64.zip</gecko.win64.driver.key>
 ```
 
 # Prerequisites
