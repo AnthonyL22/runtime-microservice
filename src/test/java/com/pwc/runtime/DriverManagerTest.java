@@ -18,6 +18,7 @@ import static org.mockito.Mockito.when;
 @RunWith(MockitoJUnitRunner.class)
 public class DriverManagerTest {
 
+    private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
     private static final String CHROME_LINUX_64_FILE_NAME = "chrome/chrome_linux_64";
@@ -27,6 +28,7 @@ public class DriverManagerTest {
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
     private static final String FIREFOX_WINDOWS_FILE_NAME = "firefox/geckodriver.exe";
 
+    private static final String SELENIUM_SERVER_JAR_FILE_NAME = "3.4/selenium-server-standalone-3.4.0.jar";
     private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "2.21/chromedriver_win32.zip";
     private static final String CHROME_LINUX_32_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux32.zip";
     private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux64.zip";
@@ -39,6 +41,7 @@ public class DriverManagerTest {
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
     private URL mockGoogleAPIUrl;
+    private URL mockGoogleReleaseAPIUrl;
 
     @Before
     public void setUp() {
@@ -48,6 +51,7 @@ public class DriverManagerTest {
             baseNonZipTargetFileName = "chrome/chrome_win.bz2";
             baseKeyNonZipFile = "phantomjs-2.1.1-linux-i686.tar.bz2";
             mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
+            mockGoogleReleaseAPIUrl = new URL("http://selenium-release.storage.googleapis.com/");
 
             HashMap mockContentMap = mock(HashMap.class);
             when(mockContentMap.get("Owner")).thenReturn("");
@@ -62,6 +66,17 @@ public class DriverManagerTest {
             e.printStackTrace();
         }
 
+    }
+
+    @Test
+    public void downloadServerJarTargetFileNotExistTest() {
+        URL baseUrl = DriverManager.class.getClassLoader().getResource("grid/");
+        File targetFile = new File(baseUrl.getPath() + File.separator + SELENIUM_SERVER_FILE_NAME);
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        boolean result = DriverManager.downloadDriver(targetFile, mockGoogleReleaseAPIUrl, SELENIUM_SERVER_JAR_FILE_NAME);
+        assertTrue(result);
     }
 
     @Test
@@ -91,6 +106,18 @@ public class DriverManagerTest {
         File targetFile = new File(baseUrl.getPath() + File.separator + baseNonZipTargetFileName);
         boolean result = DriverManager.downloadDriver(targetFile, mockGoogleAPIUrl, baseKeyNonZipFile);
         assertFalse(result);
+    }
+
+    @Test
+    public void mainSuccessfulDownloadSeleniumServerTest() {
+        URL baseUrl = DriverManager.class.getClassLoader().getResource("grid/");
+        File targetFile = new File(baseUrl.getPath() + File.separator + SELENIUM_SERVER_FILE_NAME);
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        DriverManager.main(new String[]{SELENIUM_SERVER_JAR_FILE_NAME});
+        assertTrue("Selenium Server File was downloaded successfully", targetFile.exists());
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(SELENIUM_SERVER_FILE_NAME, "//")));
     }
 
     @Test
