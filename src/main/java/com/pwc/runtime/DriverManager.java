@@ -16,6 +16,7 @@ import java.util.zip.ZipInputStream;
 
 public class DriverManager extends Manager {
 
+    private static final Pattern SELENIUM_REGEX = Pattern.compile("^.*?selenium.*?$");
     private static final Pattern CHROME_WINDOWS_REGEX = Pattern.compile("^.*?chrome.+?win32.*?$");
     private static final Pattern CHROME_LINUX_32_REGEX = Pattern.compile("^.*?chrome.+?linux32.*?$");
     private static final Pattern CHROME_LINUX_64_REGEX = Pattern.compile("^.*?chrome.+?linux64.*?$");
@@ -27,6 +28,7 @@ public class DriverManager extends Manager {
     private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
 
+    private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
     private static final String CHROME_LINUX_64_FILE_NAME = "chrome/chrome_linux_64";
@@ -55,15 +57,15 @@ public class DriverManager extends Manager {
         try {
 
             Properties properties = PropertiesUtils.getPropertiesFromPropertyFile("driver.properties");
-            URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
 
-            chromeUrl = new URL((String) properties.get("chrome.driver.url"));
             seleniumUrl = new URL((String) properties.get("selenium.release.driver.url"));
+            chromeUrl = new URL((String) properties.get("chrome.driver.url"));
             phantomJsUrl = new URL((String) properties.get("phantomjs.driver.url"));
             geckoUrl = new URL((String) properties.get("gecko.driver.url"));
 
             for (String key : keys) {
 
+                URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
                 URL targetUrl = getChromeUrl();
                 String targetFileName = null;
                 if (CHROME_WINDOWS_REGEX.matcher(key).find()) {
@@ -92,6 +94,10 @@ public class DriverManager extends Manager {
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
+                } else if (SELENIUM_REGEX.matcher(key).find()) {
+                    targetFileName = SELENIUM_SERVER_FILE_NAME;
+                    targetUrl = getSeleniumUrl();
+                    baseUrl = DriverManager.class.getClassLoader().getResource("grid/");
                 }
 
                 File targetFile = new File(baseUrl.getPath() + File.separator + targetFileName);
