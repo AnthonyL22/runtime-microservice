@@ -20,7 +20,7 @@ public class DriverManager extends Manager {
     private static final Pattern CHROME_WINDOWS_REGEX = Pattern.compile("^.*?chrome.+?win32.*?$");
     private static final Pattern CHROME_LINUX_32_REGEX = Pattern.compile("^.*?chrome.+?linux32.*?$");
     private static final Pattern CHROME_LINUX_64_REGEX = Pattern.compile("^.*?chrome.+?linux64.*?$");
-    private static final Pattern CHROME_MAC_FILE_REGEX = Pattern.compile("^.*?chrome.+?mac32.*?$");
+    private static final Pattern CHROME_MAC_FILE_REGEX = Pattern.compile("^.*?chrome.+?mac64.*?$");
     private static final Pattern IE_WINDOWS_32_REGEX = Pattern.compile("^.*?IEDriver.+?Win32.*?$");
     private static final Pattern IE_WINDOWS_64_REGEX = Pattern.compile("^.*?IEDriver.+?x64.*?$");
     private static final Pattern SAFARI_REGEX = Pattern.compile("^.*?safari.*?$");

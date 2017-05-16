@@ -32,7 +32,7 @@ public class DriverManagerTest {
     private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "2.21/chromedriver_win32.zip";
     private static final String CHROME_LINUX_32_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux32.zip";
     private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux64.zip";
-    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "2.21/chromedriver_mac32.zip";
+    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "2.29/chromedriver_mac64.zip";
     private static final String CHROME_IE_32_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_Win32_2.53.1.zip";
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
