@@ -39,15 +39,15 @@ rebuild.
  
 ```
     <!--Driver KEYS-->
-    <selenium.server.standalone.driver.key>3.5/selenium-server-standalone-3.5.3.jar</selenium.server.standalone.driver.key>
-    <chrome.win.driver.key>2.32/chromedriver_win32.zip</chrome.win.driver.key>
-    <chrome.linux32.driver.key>2.32/chromedriver_linux32.zip</chrome.linux32.driver.key>
-    <chrome.linux64.driver.key>2.32/chromedriver_linux64.zip</chrome.linux64.driver.key>
-    <chrome.mac64.driver.key>2.32/chromedriver_mac64.zip</chrome.mac64.driver.key>
-    <ie.win32.driver.key>3.5/IEDriverServer_Win32_3.5.1.zip</ie.win32.driver.key>
-    <ie.win64.driver.key>3.5/IEDriverServer_x64_3.5.1.zip</ie.win64.driver.key>
-    <safari.driver.key>2.48/SafariDriver.safariextz</safari.driver.key>
-    <gecko.win64.driver.key>v0.18.0/geckodriver-v0.18.0-win64.zip</gecko.win64.driver.key>
+    <driver.key.chrome.linux32>LATEST_VERSION/chromedriver_linux32.zip</driver.key.chrome.linux32>
+    <driver.key.chrome.linux64>LATEST_VERSION/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>LATEST_VERSION/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win>LATEST_VERSION/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.gecko.win64>vLATEST_VERSION/geckodriver-vLATEST_VERSION-win64.zip</driver.key.gecko.win64>
+    <driver.key.ie.win32>LATEST_VERSION/IEDriverServer_Win32_LATEST_VERSION.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>LATEST_VERSION/IEDriverServer_x64_LATEST_VERSION.zip</driver.key.ie.win64>
+    <driver.key.safari>LATEST_VERSION/SafariDriver.safariextz</driver.key.safari>
+    <driver.key.selenium.server.standalone>LATEST_VERSION/selenium-server-standalone-LATEST_VERSION.jar</driver.key.selenium.server.standalone>
 ```
 
 # Prerequisites
