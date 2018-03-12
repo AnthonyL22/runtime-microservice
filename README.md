@@ -5,7 +5,8 @@ Got a question?  [Email us](http://www.pacificwebconsulting.com/contact/) or rea
 # Introduction
 
 This microservice is to make available the following two components necessary for Selenium-based & TestNG automated testing projects to run in distributed test environment(s).  
-Consumers of this project simply need to include this as a dependency and unzip the artifact in a desired location for general use.
+
+Consumers of this project simply need to include this as a Maven dependency and all components will be automatically unzipped to the proper location for general use at test runtime.
   
   1. The runtime components for Selenium GRID
   2. The desired version(s) of supported Selenium Drivers
