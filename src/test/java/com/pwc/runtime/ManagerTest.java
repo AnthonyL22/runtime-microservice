@@ -57,7 +57,7 @@ public class ManagerTest {
     public void getDriverContentByKeyGoogleAPITest() {
         HashMap result = Manager.getDriverContentByKey(mockGoogleAPIUrl, baseKey);
         HashMap spyMap = spy(result);
-        assertEquals(spyMap.size(), 6);
+        assertEquals(spyMap.size(), 7);
     }
 
     @Test

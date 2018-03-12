@@ -12,6 +12,12 @@
       "seleniumProtocol": "WebDriver"
     },
     {
+      "browserName": "chrome",
+      "maxInstances": 10,
+      "seleniumProtocol": "WebDriver",
+      "headless": "true"
+    },
+    {
       "browserName": "internet explorer",
       "maxInstances": 1,
       "seleniumProtocol": "WebDriver"
