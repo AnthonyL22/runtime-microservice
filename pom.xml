@@ -45,8 +45,8 @@
     <driver.key.chrome.mac64>2.36/chromedriver_mac64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win>2.36/chromedriver_win32.zip</driver.key.chrome.win>
     <driver.key.gecko.win64>v0.19.1/geckodriver-v0.19.1-win64.zip</driver.key.gecko.win64>
-    <driver.key.ie.win32>3.11/IEDriverServer_Win32_3.11.1.zip</driver.key.ie.win32>
-    <driver.key.ie.win64>3.11/IEDriverServer_x64_3.11.1.zip</driver.key.ie.win64>
+    <driver.key.ie.win32>3.11/IEDriverServer_Win32_3.11.0.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>3.11/IEDriverServer_x64_3.11.0.zip</driver.key.ie.win64>
     <driver.key.safari>2.48/SafariDriver.safariextz</driver.key.safari>
     <driver.key.selenium.server.standalone>3.11/selenium-server-standalone-3.11.0.jar</driver.key.selenium.server.standalone>
     <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
