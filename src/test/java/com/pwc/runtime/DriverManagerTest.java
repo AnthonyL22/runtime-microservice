@@ -27,6 +27,7 @@ public class DriverManagerTest {
     private static final String IE_WINDOWS_64_FILE_NAME = "ie/ie_win64.exe";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
     private static final String FIREFOX_WINDOWS_FILE_NAME = "firefox/geckodriver.exe";
+    private static final String EDGE_WINDOWS_FILE_NAME = "edge/edge.exe";
 
     private static final String SELENIUM_SERVER_JAR_FILE_NAME = "3.4/selenium-server-standalone-3.4.0.jar";
     private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "2.21/chromedriver_win32.zip";
@@ -37,6 +38,7 @@ public class DriverManagerTest {
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
     private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.11.1/geckodriver-v0.11.1-win64.zip";
+    private static final String EDGE_ARCHIVE_FILE_NAME = "D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe";
 
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
@@ -214,6 +216,18 @@ public class DriverManagerTest {
         DriverManager.main(new String[]{FIREFOX_ARCHIVE_FILE_NAME});
         assertTrue("Firefox File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
+    }
+
+    @Test
+    public void mainSuccessfulDownloadEdgeTest() {
+        URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
+        File targetFile = new File(baseUrl.getPath() + File.separator + EDGE_WINDOWS_FILE_NAME);
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        DriverManager.main(new String[]{EDGE_ARCHIVE_FILE_NAME});
+        assertTrue("Edge File was downloaded successfully", targetFile.exists());
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(EDGE_WINDOWS_FILE_NAME, "//")));
     }
 
     @Test

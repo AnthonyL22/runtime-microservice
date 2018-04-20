@@ -39,11 +39,12 @@
   </distributionManagement>
   <properties>
     <commons.lang.version>2.6</commons.lang.version>
-    <core-microservice.version>2.0.34</core-microservice.version>
+    <core-microservice.version>2.0.35</core-microservice.version>
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
     <driver.key.chrome.linux64>2.36/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>2.36/chromedriver_mac64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win>2.36/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.edge.win>D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe</driver.key.edge.win>
     <driver.key.gecko.win64>v0.19.1/geckodriver-v0.19.1-win64.zip</driver.key.gecko.win64>
     <driver.key.ie.win32>3.11/IEDriverServer_Win32_3.11.0.zip</driver.key.ie.win32>
     <driver.key.ie.win64>3.11/IEDriverServer_x64_3.11.0.zip</driver.key.ie.win64>
@@ -213,6 +214,7 @@
                 <argument>${driver.key.selenium.server.standalone}</argument>
                 <argument>${driver.key.gecko.win64}</argument>
                 <argument>${driver.key.chrome.win}</argument>
+                <argument>${driver.key.edge.win}</argument>
                 <argument>${driver.key.chrome.linux32}</argument>
                 <argument>${driver.key.chrome.linux64}</argument>
                 <argument>${driver.key.chrome.mac64}</argument>

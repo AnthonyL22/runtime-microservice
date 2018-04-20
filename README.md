@@ -34,7 +34,7 @@ Drivers used by Selenium in your project(s).
 
 [PhantomJS Drivers](https://bitbucket.org/ariya/phantomjs/downloads/) 
 
-[MS Edge Driver](http://www.microsoft.com/en-us/download/details.aspx?id=48740)
+[MS Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
  
 [Firefox 'Gecko' Driver](https://github.com/mozilla/geckodriver/releases/download/) 
     
@@ -47,6 +47,7 @@ rebuild.
     <driver.key.chrome.linux64>LATEST_VERSION/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>LATEST_VERSION/chromedriver_mac64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win>LATEST_VERSION/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.edge.win>LATEST_VERSION_GUID/MicrosoftWebDriver.exe</driver.key.edge.win>
     <driver.key.gecko.win64>vLATEST_VERSION/geckodriver-vLATEST_VERSION-win64.zip</driver.key.gecko.win64>
     <driver.key.ie.win32>LATEST_VERSION/IEDriverServer_Win32_LATEST_VERSION.zip</driver.key.ie.win32>
     <driver.key.ie.win64>LATEST_VERSION/IEDriverServer_x64_LATEST_VERSION.zip</driver.key.ie.win64>
