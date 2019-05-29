@@ -28,7 +28,8 @@ public class DriverManager extends Manager {
     private static final Pattern PHANTOM_WINDOWS_REGEX = Pattern.compile("^.*?phantomjs.+?windows.*?$");
     private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
-
+    private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?macos.*?$");
+    private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux64.*?$");
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
@@ -41,6 +42,8 @@ public class DriverManager extends Manager {
     private static final String PHANTOMJS_WIN_FILE_NAME = "phantomjs/phantomjs.exe";
     private static final String PHANTOMJS_MAC_FILE_NAME = "phantomjs/phantomjs";
     private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver.exe";
+    private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
+    private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
     private static final int BUFFER_SIZE = 1024;
 
     private static URL chromeUrl;
@@ -100,6 +103,12 @@ public class DriverManager extends Manager {
                     targetUrl = getPhantomJsUrl();
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
+                    targetUrl = getGeckoUrl();
+                } else if (GECKO_MAC_FILE_REGEX.matcher(key).find()) {
+                    targetFileName = GECKO_MAC_FILE_NAME;
+                    targetUrl = getGeckoUrl();
+                } else if (GECKO_LINUX_64_REGEX.matcher(key).find()) {
+                    targetFileName = GECKO_LINUX_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
                 } else if (SELENIUM_REGEX.matcher(key).find()) {
                     targetFileName = SELENIUM_SERVER_FILE_NAME;
