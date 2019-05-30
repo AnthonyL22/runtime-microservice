@@ -5,7 +5,7 @@
   <artifactId>runtime-microservice</artifactId>
   <version>1.0.20-SNAPSHOT</version>
   <name>Runtime Microservice</name>
-  <description>Runtime drivers and GRID components microservice</description>
+  <description>Runtime web drivers and GRID components microservice</description>
   <url>https://github.com/AnthonyL22/runtime-microservice</url>
   <licenses>
     <license>
