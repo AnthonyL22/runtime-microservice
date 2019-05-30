@@ -36,7 +36,7 @@ Drivers used by Selenium in your project(s).
 
 [MS Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
  
-[Firefox 'Gecko' Driver](https://github.com/mozilla/geckodriver/releases/download/) 
+[Firefox 'Gecko' Driver](https://github.com/mozilla/geckodriver/releases/) 
     
 To change the version of the drivers you'd like to use simply change the Driver Key properties in the POM.xml file and 
 rebuild.

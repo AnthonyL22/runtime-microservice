@@ -7,10 +7,12 @@ import org.apache.commons.lang3.StringUtils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.regex.Pattern;
+import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -133,7 +135,7 @@ public class DriverManager extends Manager {
     }
 
     /**
-     * Download the driver(s) from the web
+     * Download the driver(s) from the web and unzip or decompress files to target file name.
      *
      * @param targetFile complete path to target file to download
      * @param driverUrl  target file URL location on the web
@@ -185,6 +187,34 @@ public class DriverManager extends Manager {
 
                 if (unzippedTempFile.exists()) {
                     unzippedTempFile.delete();
+                }
+
+            } else if (StringUtils.containsIgnoreCase(url.toString(), ".gz")) {
+
+                byte[] buffer = new byte[1024];
+
+                try {
+
+                    System.out.println("Decompressing file and creating file : " + targetFile.getAbsoluteFile());
+
+                    File decompressedTempFile = getFileFromArchive(url.toString());
+
+                    GZIPInputStream gzis =
+                            new GZIPInputStream(new FileInputStream(decompressedTempFile));
+
+                    FileOutputStream out =
+                            new FileOutputStream(targetFile);
+
+                    int len;
+                    while ((len = gzis.read(buffer)) > 0) {
+                        out.write(buffer, 0, len);
+                    }
+
+                    gzis.close();
+                    out.close();
+
+                } catch (IOException ex) {
+                    ex.printStackTrace();
                 }
 
             } else {
