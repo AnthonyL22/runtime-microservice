@@ -5,7 +5,7 @@
   <artifactId>runtime-microservice</artifactId>
   <version>1.0.20-SNAPSHOT</version>
   <name>Runtime Microservice</name>
-  <description>Runtime drivers and GRID components microservice</description>
+  <description>Runtime web drivers and GRID components microservice</description>
   <url>https://github.com/AnthonyL22/runtime-microservice</url>
   <licenses>
     <license>
@@ -39,17 +39,19 @@
   </distributionManagement>
   <properties>
     <commons.lang.version>2.6</commons.lang.version>
-    <core-microservice.version>2.0.35</core-microservice.version>
+    <core-microservice.version>2.0.59</core-microservice.version>
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>71.0.3578.33/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>71.0.3578.33/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win>71.0.3578.33/chromedriver_win32.zip</driver.key.chrome.win>
-    <driver.key.edge.win>3/4/2/342316D7-EBE0-4F10-ABA2-AE8E0CDF36DD/MicrosoftWebDriver.exe</driver.key.edge.win>
-    <driver.key.gecko.win64>v0.19.1/geckodriver-v0.19.1-win64.zip</driver.key.gecko.win64>
-    <driver.key.ie.win32>3.11/IEDriverServer_Win32_3.11.0.zip</driver.key.ie.win32>
-    <driver.key.ie.win64>3.11/IEDriverServer_x64_3.11.0.zip</driver.key.ie.win64>
+    <driver.key.chrome.linux64>2.46/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>2.46/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win>2.46/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.edge.win>F/8/A/F8AF50AB-3C3A-4BC4-8773-DC27B32988DD/MicrosoftWebDriver.exe</driver.key.edge.win>
+    <driver.key.gecko.linux64>v0.24.0/geckodriver-v0.24.0-linux64.tar.gz</driver.key.gecko.linux64>
+    <driver.key.gecko.mac64>v0.24.0/geckodriver-v0.24.0-macos.tar.gz</driver.key.gecko.mac64>
+    <driver.key.gecko.win64>v0.24.0/geckodriver-v0.24.0-win64.zip</driver.key.gecko.win64>
+    <driver.key.ie.win32>3.14/IEDriverServer_Win32_3.14.0.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>3.14/IEDriverServer_x64_3.14.0.zip</driver.key.ie.win64>
     <driver.key.safari>2.48/SafariDriver.safariextz</driver.key.safari>
-    <driver.key.selenium.server.standalone>3.11/selenium-server-standalone-3.11.0.jar</driver.key.selenium.server.standalone>
+    <driver.key.selenium.server.standalone>3.141/selenium-server-standalone-3.141.0.jar</driver.key.selenium.server.standalone>
     <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
     <jacoco.version>0.7.5.201505241946</jacoco.version>
     <java_code.version>1.8</java_code.version>
@@ -81,6 +83,11 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${commons.lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-archiver</artifactId>
+      <version>2.2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>

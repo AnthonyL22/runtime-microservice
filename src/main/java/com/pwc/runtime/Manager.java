@@ -12,7 +12,11 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.StringWriter;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
@@ -121,6 +125,47 @@ public class Manager {
             e.printStackTrace();
         }
         tempFile.setWritable(true);
+        tempFile.setExecutable(true);
+        tempFile.setReadable(true);
+        return tempFile;
+    }
+
+    /**
+     * Download GZip file from web address.
+     *
+     * @param filePath path to ZIP file
+     * @return full file that was inside ZIP archive
+     */
+    protected static File getFileFromGZip(String filePath) {
+
+        URL tempUrl = DriverManager.class.getClassLoader().getResource("drivers/");
+        File tempFile = new File(tempUrl.getPath() + File.separator + StringUtils.substringAfterLast(filePath, "/"));
+        if (tempFile.exists()) {
+            tempFile.delete();
+        }
+
+        try {
+            URL url = new URL(filePath);
+            URLConnection connection = url.openConnection();
+            InputStream in = connection.getInputStream();
+            FileOutputStream fos = new FileOutputStream(tempFile);
+            byte[] buf = new byte[512];
+            while (true) {
+                int len = in.read(buf);
+                if (len == -1) {
+                    break;
+                }
+                fos.write(buf, 0, len);
+            }
+            in.close();
+            fos.flush();
+            fos.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        tempFile.setWritable(true);
+        tempFile.setExecutable(true);
+        tempFile.setReadable(true);
         return tempFile;
     }
 

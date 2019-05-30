@@ -2,15 +2,19 @@ package com.pwc.runtime;
 
 import com.pwc.core.framework.util.PropertiesUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Properties;
 import java.util.regex.Pattern;
+import java.util.zip.GZIPInputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -28,7 +32,8 @@ public class DriverManager extends Manager {
     private static final Pattern PHANTOM_WINDOWS_REGEX = Pattern.compile("^.*?phantomjs.+?windows.*?$");
     private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
-
+    private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?maco.*?$");
+    private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux.*?$");
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
@@ -41,6 +46,8 @@ public class DriverManager extends Manager {
     private static final String PHANTOMJS_WIN_FILE_NAME = "phantomjs/phantomjs.exe";
     private static final String PHANTOMJS_MAC_FILE_NAME = "phantomjs/phantomjs";
     private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver.exe";
+    private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
+    private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
     private static final int BUFFER_SIZE = 1024;
 
     private static URL chromeUrl;
@@ -124,7 +131,7 @@ public class DriverManager extends Manager {
     }
 
     /**
-     * Download the driver(s) from the web
+     * Download the driver(s) from the web and unzip or decompress files to target file name.
      *
      * @param targetFile complete path to target file to download
      * @param driverUrl  target file URL location on the web
@@ -146,10 +153,10 @@ public class DriverManager extends Manager {
         try {
             if (StringUtils.containsIgnoreCase(url.toString(), "zip")) {
 
-                File unzippedTempFile = getFileFromArchive(url.toString());
+                File downloadedFile = getFileFromArchive(url.toString());
 
                 byte[] buffer = new byte[BUFFER_SIZE];
-                ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(unzippedTempFile));
+                ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(downloadedFile));
                 ZipEntry zipEntry = zipInputStream.getNextEntry();
 
                 if (!targetFile.exists()) {
@@ -174,8 +181,39 @@ public class DriverManager extends Manager {
                 zipInputStream.closeEntry();
                 zipInputStream.close();
 
-                if (unzippedTempFile.exists()) {
-                    unzippedTempFile.delete();
+                if (downloadedFile.exists()) {
+                    downloadedFile.delete();
+                }
+
+            } else if (StringUtils.containsIgnoreCase(url.toString(), ".gz")) {
+
+                try {
+
+                    File downloadedFile = getFileFromGZip(url.toString());
+
+                    GZIPInputStream in = null;
+                    OutputStream out = null;
+                    try {
+                        in = new GZIPInputStream(new FileInputStream(downloadedFile));
+                        out = new FileOutputStream(targetFile);
+                        IOUtils.copy(in, out);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        in.close();
+                        out.close();
+                    }
+
+                    if (downloadedFile.exists()) {
+                        downloadedFile.delete();
+                    }
+
+                    targetFile.setWritable(true);
+                    targetFile.setExecutable(true);
+                    targetFile.setReadable(true);
+
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
 
             } else {
