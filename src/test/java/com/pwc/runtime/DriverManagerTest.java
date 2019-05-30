@@ -146,7 +146,7 @@ public class DriverManagerTest {
             targetFile.delete();
         }
         DriverManager.main(new String[]{CHROME_LINUX_32_ARCHIVE_FILE_NAME});
-        assertTrue("Chrom Linux32 ile was downloaded successfully", targetFile.exists());
+        assertTrue("Chrome Linux32 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_LINUX_32_FILE_NAME, "//")));
     }
 
