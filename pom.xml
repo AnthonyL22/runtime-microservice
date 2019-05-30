@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pacificwebconsulting.runtime</groupId>
   <artifactId>runtime-microservice</artifactId>
-  <version>1.0.19-SNAPSHOT</version>
+  <version>1.0.20-SNAPSHOT</version>
   <name>Runtime Microservice</name>
   <description>Runtime drivers and GRID components microservice</description>
   <url>https://github.com/AnthonyL22/runtime-microservice</url>
@@ -83,6 +83,11 @@
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
       <version>${commons.lang.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.plexus</groupId>
+      <artifactId>plexus-archiver</artifactId>
+      <version>2.2</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
@@ -215,8 +220,6 @@
               <arguments>
                 <argument>${driver.key.selenium.server.standalone}</argument>
                 <argument>${driver.key.gecko.win64}</argument>
-                <argument>${driver.key.gecko.mac64}</argument>
-                <argument>${driver.key.gecko.linux64}</argument>
                 <argument>${driver.key.chrome.win}</argument>
                 <argument>${driver.key.edge.win}</argument>
                 <argument>${driver.key.chrome.linux32}</argument>

@@ -2,12 +2,14 @@ package com.pwc.runtime;
 
 import com.pwc.core.framework.util.PropertiesUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Properties;
@@ -106,12 +108,6 @@ public class DriverManager extends Manager {
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
-                } else if (GECKO_MAC_FILE_REGEX.matcher(key).find()) {
-                    targetFileName = GECKO_MAC_FILE_NAME;
-                    targetUrl = getGeckoUrl();
-                } else if (GECKO_LINUX_64_REGEX.matcher(key).find()) {
-                    targetFileName = GECKO_LINUX_64_FILE_NAME;
-                    targetUrl = getGeckoUrl();
                 } else if (SELENIUM_REGEX.matcher(key).find()) {
                     targetFileName = SELENIUM_SERVER_FILE_NAME;
                     targetUrl = getSeleniumUrl();
@@ -157,10 +153,10 @@ public class DriverManager extends Manager {
         try {
             if (StringUtils.containsIgnoreCase(url.toString(), "zip")) {
 
-                File unzippedTempFile = getFileFromArchive(url.toString());
+                File downloadedFile = getFileFromArchive(url.toString());
 
                 byte[] buffer = new byte[BUFFER_SIZE];
-                ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(unzippedTempFile));
+                ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(downloadedFile));
                 ZipEntry zipEntry = zipInputStream.getNextEntry();
 
                 if (!targetFile.exists()) {
@@ -185,35 +181,38 @@ public class DriverManager extends Manager {
                 zipInputStream.closeEntry();
                 zipInputStream.close();
 
-                if (unzippedTempFile.exists()) {
-                    unzippedTempFile.delete();
+                if (downloadedFile.exists()) {
+                    downloadedFile.delete();
                 }
 
             } else if (StringUtils.containsIgnoreCase(url.toString(), ".gz")) {
 
-                byte[] buffer = new byte[1024];
-
                 try {
 
-                    System.out.println("Decompressing file and creating file : " + targetFile.getAbsoluteFile());
+                    File downloadedFile = getFileFromGZip(url.toString());
 
-                    File decompressedTempFile = getFileFromArchive(url.toString());
-
-                    GZIPInputStream gzis =
-                            new GZIPInputStream(new FileInputStream(decompressedTempFile));
-
-                    FileOutputStream out =
-                            new FileOutputStream(targetFile);
-
-                    int len;
-                    while ((len = gzis.read(buffer)) > 0) {
-                        out.write(buffer, 0, len);
+                    GZIPInputStream in = null;
+                    OutputStream out = null;
+                    try {
+                        in = new GZIPInputStream(new FileInputStream(downloadedFile));
+                        out = new FileOutputStream(targetFile);
+                        IOUtils.copy(in, out);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        in.close();
+                        out.close();
                     }
 
-                    gzis.close();
-                    out.close();
+                    if (downloadedFile.exists()) {
+                        downloadedFile.delete();
+                    }
 
-                } catch (IOException ex) {
+                    targetFile.setWritable(true);
+                    targetFile.setExecutable(true);
+                    targetFile.setReadable(true);
+
+                } catch (Exception ex) {
                     ex.printStackTrace();
                 }
 

@@ -47,6 +47,7 @@ public class DriverManagerTest {
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
     private URL mockGoogleAPIUrl;
+    private URL mockGeckoAPIUrl;
     private URL mockGoogleReleaseAPIUrl;
 
     @Before
@@ -57,6 +58,7 @@ public class DriverManagerTest {
             baseNonZipTargetFileName = "chrome/chrome_win.bz2";
             baseKeyNonZipFile = "phantomjs-2.1.1-linux-i686.tar.bz2";
             mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
+            mockGeckoAPIUrl = new URL("https://github.com/mozilla/geckodriver/releases/download/");
             mockGoogleReleaseAPIUrl = new URL("http://selenium-release.storage.googleapis.com/");
 
             HashMap mockContentMap = mock(HashMap.class);
@@ -224,26 +226,20 @@ public class DriverManagerTest {
 
     @Test
     public void mainSuccessfulDownloadGeckoMacTest() {
+
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + GECKO_MAC_FILE_NAME);
-        if (targetFile.exists()) {
-            targetFile.delete();
-        }
-        DriverManager.main(new String[]{FIREFOX_ARCHIVE_MAC_FILE_NAME});
-        assertTrue("Firefox Mac File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(GECKO_MAC_FILE_NAME, "//")));
+        boolean result = DriverManager.downloadDriver(targetFile, mockGeckoAPIUrl, FIREFOX_ARCHIVE_MAC_FILE_NAME);
+        assertTrue("Create the Target File initially", result);
     }
 
     @Test
     public void mainSuccessfulDownloadGeckoLinuxTest() {
+
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + GECKO_LINUX_64_FILE_NAME);
-        if (targetFile.exists()) {
-            targetFile.delete();
-        }
-        DriverManager.main(new String[]{FIREFOX_ARCHIVE_LINUX_FILE_NAME});
-        assertTrue("Firefox Linux File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(GECKO_LINUX_64_FILE_NAME, "//")));
+        boolean result = DriverManager.downloadDriver(targetFile, mockGeckoAPIUrl, FIREFOX_ARCHIVE_LINUX_FILE_NAME);
+        assertTrue("Create the Target File initially", result);
     }
 
     @Test
