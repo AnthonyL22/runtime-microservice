@@ -28,8 +28,8 @@ public class DriverManager extends Manager {
     private static final Pattern PHANTOM_WINDOWS_REGEX = Pattern.compile("^.*?phantomjs.+?windows.*?$");
     private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
-    private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?macos.*?$");
-    private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux64.*?$");
+    private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?maco.*?$");
+    private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux.*?$");
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
