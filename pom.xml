@@ -41,9 +41,9 @@
     <commons.lang.version>2.6</commons.lang.version>
     <core-microservice.version>2.0.59</core-microservice.version>
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>2.46/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>2.46/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win>2.46/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.chrome.linux64>76.0.3809.68/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>76.0.3809.68/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win>76.0.3809.68/chromedriver_win32.zip</driver.key.chrome.win>
     <driver.key.edge.win>F/8/A/F8AF50AB-3C3A-4BC4-8773-DC27B32988DD/MicrosoftWebDriver.exe</driver.key.edge.win>
     <driver.key.gecko.linux64>v0.24.0/geckodriver-v0.24.0-linux64.tar.gz</driver.key.gecko.linux64>
     <driver.key.gecko.mac64>v0.24.0/geckodriver-v0.24.0-macos.tar.gz</driver.key.gecko.mac64>
