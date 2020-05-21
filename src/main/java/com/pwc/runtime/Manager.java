@@ -25,7 +25,7 @@ import java.util.List;
 public class Manager {
 
     /**
-     * Convert XML to JSON from driver version APIs
+     * Convert XML to JSON from driver version APIs.
      *
      * @param url driver URL
      * @return JSON representation of XML from WEB api
@@ -57,11 +57,10 @@ public class Manager {
         }
 
         return jsonObject;
-
     }
 
     /**
-     * Get driver JSON Content for a given version
+     * Get driver JSON Content for a given version.
      *
      * @param url       driver URL
      * @param targetKey filename of driver artifact (zip, rar, etc...)  to download
@@ -76,7 +75,8 @@ public class Manager {
         HashMap foundContent = new HashMap();
         JsonPath jsonObject = getDriverXmlAsJson(url);
         if (jsonObject == null) {
-            String htmlWebsiteAPIToJSON = String.format("{\"ListBucketResult\":{\"Contents\":[{\"Owner\":{},\"Key\":\"%s\",}],\"xmlns\":\"http: //doc.s3.amazonaws.com/2006-03-01\",\"Prefix\":{},\"Marker\":{}}}", targetKey);
+            String htmlWebsiteAPIToJSON = String.format(
+                            "{\"ListBucketResult\":{\"Contents\":[{\"Owner\":{},\"Key\":\"%s\",}],\"xmlns\":\"http: //doc.s3.amazonaws.com/2006-03-01\",\"Prefix\":{},\"Marker\":{}}}", targetKey);
             jsonObject = new JsonPath(htmlWebsiteAPIToJSON);
         }
         HashMap results = jsonObject.get("ListBucketResult");
@@ -88,11 +88,10 @@ public class Manager {
             }
         }
         return foundContent;
-
     }
 
     /**
-     * Unzip a zip archive and return single file of it's contents
+     * Unzip a zip archive and return single file of it's contents.
      *
      * @param filePath path to ZIP file
      * @return full file that was inside ZIP archive
