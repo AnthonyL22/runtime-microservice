@@ -123,7 +123,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{SELENIUM_SERVER_JAR_FILE_NAME});
+        DriverManager.main(new String[] {SELENIUM_SERVER_JAR_FILE_NAME});
         assertTrue("Selenium Server File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(SELENIUM_SERVER_FILE_NAME, "//")));
     }
@@ -135,7 +135,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_WINDOWS_ZIP_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_WINDOWS_ZIP_FILE_NAME});
         assertTrue("Chrome Win File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_WINDOWS_FILE_NAME, "//")));
     }
@@ -147,7 +147,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_LINUX_32_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_LINUX_32_ARCHIVE_FILE_NAME});
         assertTrue("Chrome Linux32 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_LINUX_32_FILE_NAME, "//")));
     }
@@ -159,7 +159,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_LINUX_64_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_LINUX_64_ARCHIVE_FILE_NAME});
         assertTrue("Chrome Linux64 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_LINUX_64_FILE_NAME, "//")));
     }
@@ -171,7 +171,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_MAC_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_MAC_ARCHIVE_FILE_NAME});
         assertTrue("Chrome Mac File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_MAC_FILE_NAME, "//")));
     }
@@ -183,7 +183,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_IE_32_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_IE_32_ARCHIVE_FILE_NAME});
         assertTrue("IE Win32 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(IE_WINDOWS_32_FILE_NAME, "//")));
     }
@@ -195,7 +195,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{CHROME_IE_64_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_IE_64_ARCHIVE_FILE_NAME});
         assertTrue("IE Win64 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(IE_WINDOWS_64_FILE_NAME, "//")));
     }
@@ -207,7 +207,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{SAFARI_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {SAFARI_ARCHIVE_FILE_NAME});
         assertTrue("Safari File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(SAFARI_FILE_NAME, "//")));
     }
@@ -219,7 +219,7 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{FIREFOX_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
         assertTrue("Firefox File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
     }
@@ -249,14 +249,14 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[]{EDGE_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {EDGE_ARCHIVE_FILE_NAME});
         assertTrue("Edge File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(EDGE_WINDOWS_FILE_NAME, "//")));
     }
 
     @Test
     public void mainFailedDownloadTest() {
-        DriverManager.main(new String[]{CHROME_WINDOWS_ZIP_FILE_NAME});
+        DriverManager.main(new String[] {CHROME_WINDOWS_ZIP_FILE_NAME});
     }
 
 }
