@@ -17,7 +17,7 @@ Consumers of this project simply need to include this as a Maven dependency and 
 # Questions and issues
 
 The [github issue tracker](https://github.com/AnthonyL22/runtime-microservice/issues) is **_only_** for bug reports and 
-feature requests. Anything else, such as questions for help in using the library, should be [emailed to our team](http://www.pacificwebconsulting.com/contact/).  
+feature requests. Anything else, such as questions for help in using the library, should be [emailed to our team](http://www.pacificwebconsulting.com/contact/).  Thanks!
 
 # Technology
 

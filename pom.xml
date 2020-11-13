@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pacificwebconsulting.runtime</groupId>
   <artifactId>runtime-microservice</artifactId>
-  <version>1.0.28-SNAPSHOT</version>
+  <version>1.0.30-SNAPSHOT</version>
   <name>Runtime Microservice</name>
   <description>Runtime web drivers and GRID components microservice</description>
   <url>https://github.com/AnthonyL22/runtime-microservice</url>
@@ -56,7 +56,7 @@
     <format-maven-plugin.version>2.0.1</format-maven-plugin.version>
     <jacoco.version>0.7.5.201505241946</jacoco.version>
     <java_code.version>1.8</java_code.version>
-    <junit.version>4.11</junit.version>
+    <junit.version>4.13.1</junit.version>
     <maven-assembly-plugin.version>2.5.5</maven-assembly-plugin.version>
     <maven-clean-plugin.version>2.4.1</maven-clean-plugin.version>
     <maven-compiler-plugin.version>3.1</maven-compiler-plugin.version>
