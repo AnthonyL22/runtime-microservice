@@ -29,7 +29,8 @@ public class DriverManagerTest {
     private static final String FIREFOX_WINDOWS_FILE_NAME = "firefox/geckodriver.exe";
     private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
     private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
-    private static final String EDGE_WINDOWS_FILE_NAME = "edge/edge.exe";
+    private static final String EDGE_WINDOWS_FILE_NAME = "edge/edge_win.exe";
+    private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
 
     private static final String SELENIUM_SERVER_JAR_FILE_NAME = "3.4/selenium-server-standalone-3.4.0.jar";
     private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "2.21/chromedriver_win32.zip";
@@ -42,7 +43,8 @@ public class DriverManagerTest {
     private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.11.1/geckodriver-v0.11.1-win64.zip";
     private static final String FIREFOX_ARCHIVE_MAC_FILE_NAME = "v0.24.0/geckodriver-v0.24.0-macos.tar.gz";
     private static final String FIREFOX_ARCHIVE_LINUX_FILE_NAME = "v0.24.0/geckodriver-v0.24.0-linux64.tar.gz";
-    private static final String EDGE_ARCHIVE_FILE_NAME = "D/4/1/D417998A-58EE-4EFE-A7CC-39EF9E020768/MicrosoftWebDriver.exe";
+    private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_win64.zip";
+    private static final String EDGE_MAC_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_mac64.zip";
 
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
@@ -243,15 +245,27 @@ public class DriverManagerTest {
     }
 
     @Test
-    public void mainSuccessfulDownloadEdgeTest() {
+    public void mainSuccessfulDownloadEdgeWindowsTest() {
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + EDGE_WINDOWS_FILE_NAME);
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[] {EDGE_ARCHIVE_FILE_NAME});
+        DriverManager.main(new String[] {EDGE_WINDOWS_ARCHIVE_FILE_NAME});
         assertTrue("Edge File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(EDGE_WINDOWS_FILE_NAME, "//")));
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(EDGE_WINDOWS_ARCHIVE_FILE_NAME, "//")));
+    }
+
+    @Test
+    public void mainSuccessfulDownloadEdgeMacTest() {
+        URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
+        File targetFile = new File(baseUrl.getPath() + File.separator + EDGE_MAC_FILE_NAME);
+        if (targetFile.exists()) {
+            targetFile.delete();
+        }
+        DriverManager.main(new String[] {EDGE_MAC_ARCHIVE_FILE_NAME});
+        assertTrue("Edge File was downloaded successfully", targetFile.exists());
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(EDGE_WINDOWS_ARCHIVE_FILE_NAME, "//")));
     }
 
     @Test

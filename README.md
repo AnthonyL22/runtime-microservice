@@ -46,8 +46,9 @@ rebuild.
     <driver.key.chrome.linux32>LATEST_VERSION/chromedriver_linux32.zip</driver.key.chrome.linux32>
     <driver.key.chrome.linux64>LATEST_VERSION/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>LATEST_VERSION/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win>LATEST_VERSION/chromedriver_win32.zip</driver.key.chrome.win>
-    <driver.key.edge.win>LATEST_VERSION_GUID/MicrosoftWebDriver.exe</driver.key.edge.win>
+    <driver.key.chrome.win64>LATEST_VERSION/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.edge.mac64>92.0.902.55/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>92.0.902.55/edgedriver_win64.zip</driver.key.edge.win64>
     <driver.key.gecko.win64>vLATEST_VERSION/geckodriver-vLATEST_VERSION-win64.zip</driver.key.gecko.win64>
     <driver.key.ie.win32>LATEST_VERSION/IEDriverServer_Win32_LATEST_VERSION.zip</driver.key.ie.win32>
     <driver.key.ie.win64>LATEST_VERSION/IEDriverServer_x64_LATEST_VERSION.zip</driver.key.ie.win64>

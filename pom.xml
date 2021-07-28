@@ -43,8 +43,9 @@
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
     <driver.key.chrome.linux64>91.0.4472.19/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>91.0.4472.19/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win>91.0.4472.19/chromedriver_win32.zip</driver.key.chrome.win>
-    <driver.key.edge.win>F/8/A/F8AF50AB-3C3A-4BC4-8773-DC27B32988DD/MicrosoftWebDriver.exe</driver.key.edge.win>
+    <driver.key.chrome.win64>91.0.4472.19/chromedriver_win32.zip</driver.key.chrome.win64>
+    <driver.key.edge.mac64>92.0.902.55/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>92.0.902.55/edgedriver_win64.zip</driver.key.edge.win64>
     <driver.key.gecko.linux64>v0.29.1/geckodriver-v0.29.1-linux64.tar.gz</driver.key.gecko.linux64>
     <driver.key.gecko.mac64>v0.29.1/geckodriver-v0.29.1-macos.tar.gz</driver.key.gecko.mac64>
     <driver.key.gecko.win64>v0.29.1/geckodriver-v0.29.1-win64.zip</driver.key.gecko.win64>
@@ -223,8 +224,9 @@
               <arguments>
                 <argument>${driver.key.selenium.server.standalone}</argument>
                 <argument>${driver.key.gecko.win64}</argument>
-                <argument>${driver.key.chrome.win}</argument>
-                <argument>${driver.key.edge.win}</argument>
+                <argument>${driver.key.chrome.win64}</argument>
+                <argument>${driver.key.edge.mac64}</argument>
+                <argument>${driver.key.edge.win64}</argument>
                 <argument>${driver.key.chrome.linux32}</argument>
                 <argument>${driver.key.chrome.linux64}</argument>
                 <argument>${driver.key.chrome.mac64}</argument>

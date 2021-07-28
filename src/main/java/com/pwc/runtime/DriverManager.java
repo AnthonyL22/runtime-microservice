@@ -28,12 +28,14 @@ public class DriverManager extends Manager {
     private static final Pattern IE_WINDOWS_32_REGEX = Pattern.compile("^.*?IEDriver.+?Win32.*?$");
     private static final Pattern IE_WINDOWS_64_REGEX = Pattern.compile("^.*?IEDriver.+?x64.*?$");
     private static final Pattern SAFARI_REGEX = Pattern.compile("^.*?safari.*?$");
-    private static final Pattern EDGE_REGEX = Pattern.compile("^.*?MicrosoftWebDriver.*?$");
+    private static final Pattern EDGE_WINDOWS_REGEX = Pattern.compile("^.*?edgedriver.+?win64.*?$");
+    private static final Pattern EDGE_MAC_REGEX = Pattern.compile("^.*?edgedriver.+?mac.*?$");
     private static final Pattern PHANTOM_WINDOWS_REGEX = Pattern.compile("^.*?phantomjs.+?windows.*?$");
     private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
     private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?maco.*?$");
     private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux.*?$");
+
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
     private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
@@ -41,7 +43,8 @@ public class DriverManager extends Manager {
     private static final String CHROME_MAC_FILE_NAME = "chrome/chrome_mac";
     private static final String IE_WINDOWS_32_FILE_NAME = "ie/ie_win32.exe";
     private static final String IE_WINDOWS_64_FILE_NAME = "ie/ie_win64.exe";
-    private static final String EDGE_FILE_NAME = "edge/edge.exe";
+    private static final String EDGE_WIDOWS_FILE_NAME = "edge/edge_win.exe";
+    private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
     private static final String PHANTOMJS_WIN_FILE_NAME = "phantomjs/phantomjs.exe";
     private static final String PHANTOMJS_MAC_FILE_NAME = "phantomjs/phantomjs";
@@ -96,8 +99,11 @@ public class DriverManager extends Manager {
                 } else if (SAFARI_REGEX.matcher(key).find()) {
                     targetFileName = SAFARI_FILE_NAME;
                     targetUrl = getSeleniumUrl();
-                } else if (EDGE_REGEX.matcher(key).find()) {
-                    targetFileName = EDGE_FILE_NAME;
+                } else if (EDGE_WINDOWS_REGEX.matcher(key).find()) {
+                    targetFileName = EDGE_WIDOWS_FILE_NAME;
+                    targetUrl = getEdgeUrl();
+                } else if (EDGE_MAC_REGEX.matcher(key).find()) {
+                    targetFileName = EDGE_MAC_FILE_NAME;
                     targetUrl = getEdgeUrl();
                 } else if (PHANTOM_WINDOWS_REGEX.matcher(key).find()) {
                     targetFileName = PHANTOMJS_WIN_FILE_NAME;
