@@ -43,17 +43,19 @@ rebuild.
  
 ```
     <!--Driver KEYS-->
-    <driver.key.chrome.linux32>LATEST_VERSION/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>LATEST_VERSION/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>LATEST_VERSION/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win64>LATEST_VERSION/chromedriver_win32.zip</driver.key.chrome.win>
+    <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
+    <driver.key.chrome.linux64>91.0.4472.19/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>91.0.4472.19/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win64>91.0.4472.19/chromedriver_win32.zip</driver.key.chrome.win64>
     <driver.key.edge.mac64>92.0.902.55/edgedriver_mac64.zip</driver.key.edge.mac64>
     <driver.key.edge.win64>92.0.902.55/edgedriver_win64.zip</driver.key.edge.win64>
-    <driver.key.gecko.win64>vLATEST_VERSION/geckodriver-vLATEST_VERSION-win64.zip</driver.key.gecko.win64>
-    <driver.key.ie.win32>LATEST_VERSION/IEDriverServer_Win32_LATEST_VERSION.zip</driver.key.ie.win32>
-    <driver.key.ie.win64>LATEST_VERSION/IEDriverServer_x64_LATEST_VERSION.zip</driver.key.ie.win64>
-    <driver.key.safari>LATEST_VERSION/SafariDriver.safariextz</driver.key.safari>
-    <driver.key.selenium.server.standalone>LATEST_VERSION/selenium-server-standalone-LATEST_VERSION.jar</driver.key.selenium.server.standalone>
+    <driver.key.gecko.linux64>v0.29.1/geckodriver-v0.29.1-linux64.tar.gz</driver.key.gecko.linux64>
+    <driver.key.gecko.mac64>v0.29.1/geckodriver-v0.29.1-macos.tar.gz</driver.key.gecko.mac64>
+    <driver.key.gecko.win64>v0.29.1/geckodriver-v0.29.1-win64.zip</driver.key.gecko.win64>
+    <driver.key.ie.win32>3.14/IEDriverServer_Win32_3.14.0.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>3.14/IEDriverServer_x64_3.14.0.zip</driver.key.ie.win64>
+    <driver.key.safari>2.48/SafariDriver.safariextz</driver.key.safari>
+    <driver.key.selenium.server.standalone>3.141/selenium-server-standalone-3.141.0.jar</driver.key.selenium.server.standalone>
 ```
 
 # Prerequisites
