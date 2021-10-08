@@ -49,8 +49,8 @@
     <driver.key.gecko.linux64>v0.29.1/geckodriver-v0.29.1-linux64.tar.gz</driver.key.gecko.linux64>
     <driver.key.gecko.mac64>v0.29.1/geckodriver-v0.29.1-macos.tar.gz</driver.key.gecko.mac64>
     <driver.key.gecko.win64>v0.29.1/geckodriver-v0.29.1-win64.zip</driver.key.gecko.win64>
-    <driver.key.ie.win32>3.14/IEDriverServer_Win32_3.14.0.zip</driver.key.ie.win32>
-    <driver.key.ie.win64>3.14/IEDriverServer_x64_3.14.0.zip</driver.key.ie.win64>
+    <driver.key.ie.win32>3.150/IEDriverServer_Win32_3.14.0.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>3.150/IEDriverServer_x64_3.14.0.zip</driver.key.ie.win64>
     <driver.key.safari>2.48/SafariDriver.safariextz</driver.key.safari>
     <driver.key.selenium.server.standalone>3.141/selenium-server-standalone-3.141.0.jar</driver.key.selenium.server.standalone>
     <exec-maven-plugin.version>1.2.1</exec-maven-plugin.version>
