@@ -32,8 +32,6 @@ Drivers used by Selenium in your project(s).
 
 [IE, Safari, Other Drivers](http://selenium-release.storage.googleapis.com/) 
 
-[PhantomJS Drivers](https://bitbucket.org/ariya/phantomjs/downloads/) 
-
 [MS Edge Driver](https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/)
  
 [Firefox 'Gecko' Driver](https://github.com/mozilla/geckodriver/releases/) 
