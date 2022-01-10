@@ -2,14 +2,11 @@ package com.pwc.runtime;
 
 import com.pwc.core.framework.util.PropertiesUtils;
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Properties;
@@ -114,6 +111,12 @@ public class DriverManager extends Manager {
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
+                } else if (GECKO_MAC_FILE_REGEX.matcher(key).find()) {
+                    targetFileName = GECKO_MAC_FILE_NAME;
+                    targetUrl = getGeckoUrl();
+                } else if (GECKO_LINUX_64_REGEX.matcher(key).find()) {
+                    targetFileName = GECKO_LINUX_64_FILE_NAME;
+                    targetUrl = getGeckoUrl();
                 } else if (SELENIUM_REGEX.matcher(key).find()) {
                     targetFileName = SELENIUM_SERVER_FILE_NAME;
                     targetUrl = getSeleniumUrl();
@@ -195,23 +198,17 @@ public class DriverManager extends Manager {
 
                 try {
 
-                    File downloadedFile = getFileFromGZip(url.toString());
+                    File downloadedGZipFile = getFileFromGZip(url.toString());
 
-                    GZIPInputStream in = null;
-                    OutputStream out = null;
-                    try {
-                        in = new GZIPInputStream(new FileInputStream(downloadedFile));
-                        out = new FileOutputStream(targetFile);
-                        IOUtils.copy(in, out);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    } finally {
-                        in.close();
-                        out.close();
-                    }
+                    try (GZIPInputStream gis = new GZIPInputStream(new FileInputStream(downloadedGZipFile)); FileOutputStream fos = new FileOutputStream(targetFile)) {
 
-                    if (downloadedFile.exists()) {
-                        downloadedFile.delete();
+                        System.out.println("Decompress GZIP and creating file : " + targetFile.getAbsoluteFile());
+                        byte[] buffer = new byte[1024];
+                        int len;
+                        while ((len = gis.read(buffer)) > 0) {
+                            fos.write(buffer, 0, len);
+                        }
+
                     }
 
                     targetFile.setWritable(true);
