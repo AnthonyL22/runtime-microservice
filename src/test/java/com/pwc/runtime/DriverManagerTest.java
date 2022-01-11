@@ -58,7 +58,7 @@ public class DriverManagerTest {
         try {
 
             baseNonZipTargetFileName = "chrome/chrome_win.bz2";
-            baseKeyNonZipFile = "phantomjs-2.1.1-linux-i686.tar.bz2";
+            baseKeyNonZipFile = "v0.30.0/geckodriver-v0.30.0-macos.tar.gz";
             mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
             mockGeckoAPIUrl = new URL("https://github.com/mozilla/geckodriver/releases/download/");
             mockGoogleReleaseAPIUrl = new URL("http://selenium-release.storage.googleapis.com/");

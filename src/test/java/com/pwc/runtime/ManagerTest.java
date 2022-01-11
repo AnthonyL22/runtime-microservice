@@ -21,7 +21,6 @@ public class ManagerTest {
 
     private String baseKey;
     private URL mockGoogleAPIUrl;
-    private URL mockBitBucketAPIUrl;
     private URL mockGeckoAPIUrl;
 
     @Before
@@ -31,7 +30,6 @@ public class ManagerTest {
 
             baseKey = "2.32/chromedriver_win32.zip";
             mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
-            mockBitBucketAPIUrl = new URL("https://bitbucket.org/ariya/phantomjs/downloads/");
             mockGeckoAPIUrl = new URL("https://github.com/mozilla/geckodriver/releases/download/");
 
             HashMap mockContentMap = mock(HashMap.class);
@@ -69,12 +67,6 @@ public class ManagerTest {
     }
 
     @Test
-    public void getDriverContentByKeyBitBucketTest() {
-        HashMap result = Manager.getDriverContentByKey(mockBitBucketAPIUrl, baseKey);
-        assertNull(result);
-    }
-
-    @Test
     public void getDriverXmlAsJsonGoogleApiTest() {
         JsonPath jsonPath;
         jsonPath = Manager.getDriverXmlAsJson(mockGoogleAPIUrl);
@@ -82,13 +74,6 @@ public class ManagerTest {
         HashMap resultMap = spyJsonPath.get();
         HashMap listBucketResultMap = (HashMap) resultMap.get("ListBucketResult");
         assertEquals(listBucketResultMap.size(), 6);
-    }
-
-    @Test(expected = NullPointerException.class)
-    public void getDriverXmlAsJsonOtherApiTest() {
-        JsonPath jsonPath;
-        jsonPath = Manager.getDriverXmlAsJson(mockBitBucketAPIUrl);
-        spy(jsonPath);
     }
 
 }

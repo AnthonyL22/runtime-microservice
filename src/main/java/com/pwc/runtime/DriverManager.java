@@ -27,8 +27,6 @@ public class DriverManager extends Manager {
     private static final Pattern SAFARI_REGEX = Pattern.compile("^.*?safari.*?$");
     private static final Pattern EDGE_WINDOWS_REGEX = Pattern.compile("^.*?edgedriver.+?win64.*?$");
     private static final Pattern EDGE_MAC_REGEX = Pattern.compile("^.*?edgedriver.+?mac.*?$");
-    private static final Pattern PHANTOM_WINDOWS_REGEX = Pattern.compile("^.*?phantomjs.+?windows.*?$");
-    private static final Pattern PHANTOM_MAC_REGEX = Pattern.compile("^.*?phantomjs.+?macosx.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
     private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?maco.*?$");
     private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux.*?$");
@@ -43,8 +41,6 @@ public class DriverManager extends Manager {
     private static final String EDGE_WIDOWS_FILE_NAME = "edge/edge_win.exe";
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
-    private static final String PHANTOMJS_WIN_FILE_NAME = "phantomjs/phantomjs.exe";
-    private static final String PHANTOMJS_MAC_FILE_NAME = "phantomjs/phantomjs";
     private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver.exe";
     private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
     private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
@@ -52,7 +48,6 @@ public class DriverManager extends Manager {
 
     private static URL chromeUrl;
     private static URL seleniumUrl;
-    private static URL phantomJsUrl;
     private static URL geckoUrl;
     private static URL edgeUrl;
 
@@ -70,7 +65,6 @@ public class DriverManager extends Manager {
 
             seleniumUrl = new URL((String) properties.get("selenium.release.driver.url"));
             chromeUrl = new URL((String) properties.get("chrome.driver.url"));
-            phantomJsUrl = new URL((String) properties.get("phantomjs.driver.url"));
             geckoUrl = new URL((String) properties.get("gecko.driver.url"));
             edgeUrl = new URL((String) properties.get("edge.driver.url"));
 
@@ -102,12 +96,6 @@ public class DriverManager extends Manager {
                 } else if (EDGE_MAC_REGEX.matcher(key).find()) {
                     targetFileName = EDGE_MAC_FILE_NAME;
                     targetUrl = getEdgeUrl();
-                } else if (PHANTOM_WINDOWS_REGEX.matcher(key).find()) {
-                    targetFileName = PHANTOMJS_WIN_FILE_NAME;
-                    targetUrl = getPhantomJsUrl();
-                } else if (PHANTOM_MAC_REGEX.matcher(key).find()) {
-                    targetFileName = PHANTOMJS_MAC_FILE_NAME;
-                    targetUrl = getPhantomJsUrl();
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
@@ -245,16 +233,8 @@ public class DriverManager extends Manager {
         this.seleniumUrl = ieUrl;
     }
 
-    public static URL getPhantomJsUrl() {
-        return phantomJsUrl;
-    }
-
     public static URL getGeckoUrl() {
         return geckoUrl;
-    }
-
-    public static void setPhantomJsUrl(URL phantomJsUrl) {
-        DriverManager.phantomJsUrl = phantomJsUrl;
     }
 
     public static URL getEdgeUrl() {
