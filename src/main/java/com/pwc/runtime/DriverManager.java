@@ -2,11 +2,14 @@ package com.pwc.runtime;
 
 import com.pwc.core.framework.util.PropertiesUtils;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Properties;
@@ -186,17 +189,23 @@ public class DriverManager extends Manager {
 
                 try {
 
-                    File downloadedGZipFile = getFileFromGZip(url.toString());
+                    File downloadedFile = getFileFromGZip(url.toString());
 
-                    try (GZIPInputStream gis = new GZIPInputStream(new FileInputStream(downloadedGZipFile)); FileOutputStream fos = new FileOutputStream(targetFile)) {
+                    GZIPInputStream in = null;
+                    OutputStream out = null;
+                    try {
+                        in = new GZIPInputStream(new FileInputStream(downloadedFile));
+                        out = new FileOutputStream(targetFile);
+                        IOUtils.copy(in, out);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    } finally {
+                        in.close();
+                        out.close();
+                    }
 
-                        System.out.println("Decompress GZIP and creating file : " + targetFile.getAbsoluteFile());
-                        byte[] buffer = new byte[1024];
-                        int len;
-                        while ((len = gis.read(buffer)) > 0) {
-                            fos.write(buffer, 0, len);
-                        }
-
+                    if (downloadedFile.exists()) {
+                        downloadedFile.delete();
                     }
 
                     targetFile.setWritable(true);
