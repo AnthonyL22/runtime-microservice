@@ -203,7 +203,7 @@ public class DriverManager extends Manager {
                         in.close();
                         out.close();
                     }
-
+                    System.out.println("Decompressing and creating file : " + targetFile.getAbsoluteFile());
                     if (downloadedFile.exists()) {
                         downloadedFile.delete();
                     }
