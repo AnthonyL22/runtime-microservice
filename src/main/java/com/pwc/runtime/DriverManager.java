@@ -41,7 +41,7 @@ public class DriverManager extends Manager {
     private static final String EDGE_WIDOWS_FILE_NAME = "edge/edge_win.exe";
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
-    private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver.exe";
+    private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver_mac.exe";
     private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
     private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
     private static final int BUFFER_SIZE = 1024;
@@ -55,7 +55,7 @@ public class DriverManager extends Manager {
      * Entry point to Driver Manager application used to download and un-package/unzip drivers accordingly
      *
      * @param keys program arguments of filename of driver artifact to download.
-     *             For example "v0.11.1/geckodriver-v0.11.1-win64.zip"
+     *             For example "v0.11.1/geckodriver_mac-v0.11.1-win64.zip"
      */
     public static void main(String[] keys) {
 
@@ -98,12 +98,6 @@ public class DriverManager extends Manager {
                     targetUrl = getEdgeUrl();
                 } else if (GECKO_WINDOWS_64_REGEX.matcher(key).find()) {
                     targetFileName = GECKO_WINDOWS_64_FILE_NAME;
-                    targetUrl = getGeckoUrl();
-                } else if (GECKO_MAC_FILE_REGEX.matcher(key).find()) {
-                    targetFileName = GECKO_MAC_FILE_NAME;
-                    targetUrl = getGeckoUrl();
-                } else if (GECKO_LINUX_64_REGEX.matcher(key).find()) {
-                    targetFileName = GECKO_LINUX_64_FILE_NAME;
                     targetUrl = getGeckoUrl();
                 } else if (SELENIUM_REGEX.matcher(key).find()) {
                     targetFileName = SELENIUM_SERVER_FILE_NAME;
