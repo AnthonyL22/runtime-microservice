@@ -40,7 +40,7 @@ public class DriverManagerTest {
     private static final String CHROME_IE_32_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_Win32_2.53.1.zip";
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
-    private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.11.1/geckodriver_mac-v0.11.1-win64.zip";
+    private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.30.0/geckodriver-v0.30.0-win64.zip";
     private static final String FIREFOX_ARCHIVE_MAC_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-macos.tar.gz";
     private static final String FIREFOX_ARCHIVE_LINUX_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-linux64.tar.gz";
     private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_win64.zip";
@@ -215,15 +215,15 @@ public class DriverManagerTest {
     }
 
     @Test
-    public void mainSuccessfulDownloadGeckoTest() {
+    public void mainSuccessfulDownloadWindowsGeckoTest() {
+        DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + FIREFOX_WINDOWS_FILE_NAME);
+        assertTrue("Firefox File was downloaded successfully", targetFile.exists());
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
-        assertTrue("Firefox File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
     }
 
     @Test
