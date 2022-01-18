@@ -26,7 +26,7 @@ public class DriverManagerTest {
     private static final String IE_WINDOWS_32_FILE_NAME = "ie/ie_win32.exe";
     private static final String IE_WINDOWS_64_FILE_NAME = "ie/ie_win64.exe";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
-    private static final String FIREFOX_WINDOWS_FILE_NAME = "firefox/geckodriver.exe";
+    private static final String FIREFOX_WINDOWS_FILE_NAME = "firefox/geckodriver_mac.exe";
     private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
     private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
     private static final String EDGE_WINDOWS_FILE_NAME = "edge/edge_win.exe";
@@ -40,9 +40,9 @@ public class DriverManagerTest {
     private static final String CHROME_IE_32_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_Win32_2.53.1.zip";
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
-    private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.11.1/geckodriver-v0.11.1-win64.zip";
-    private static final String FIREFOX_ARCHIVE_MAC_FILE_NAME = "v0.24.0/geckodriver-v0.24.0-macos.tar.gz";
-    private static final String FIREFOX_ARCHIVE_LINUX_FILE_NAME = "v0.24.0/geckodriver-v0.24.0-linux64.tar.gz";
+    private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.30.0/geckodriver-v0.30.0-win64.zip";
+    private static final String FIREFOX_ARCHIVE_MAC_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-macos.tar.gz";
+    private static final String FIREFOX_ARCHIVE_LINUX_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-linux64.tar.gz";
     private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_win64.zip";
     private static final String EDGE_MAC_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_mac64.zip";
 
@@ -58,7 +58,7 @@ public class DriverManagerTest {
         try {
 
             baseNonZipTargetFileName = "chrome/chrome_win.bz2";
-            baseKeyNonZipFile = "phantomjs-2.1.1-linux-i686.tar.bz2";
+            baseKeyNonZipFile = "v0.30.0/geckodriver_mac-v0.30.0-macos.tar.gz";
             mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
             mockGeckoAPIUrl = new URL("https://github.com/mozilla/geckodriver/releases/download/");
             mockGoogleReleaseAPIUrl = new URL("http://selenium-release.storage.googleapis.com/");
@@ -215,15 +215,15 @@ public class DriverManagerTest {
     }
 
     @Test
-    public void mainSuccessfulDownloadGeckoTest() {
+    public void mainSuccessfulDownloadWindowsGeckoTest() {
+        DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + FIREFOX_WINDOWS_FILE_NAME);
+        assertTrue("Firefox File was downloaded successfully", targetFile.exists());
+        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
-        assertTrue("Firefox File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
     }
 
     @Test

@@ -138,16 +138,16 @@ public class Manager {
     protected static File getFileFromGZip(String filePath) {
 
         URL tempUrl = DriverManager.class.getClassLoader().getResource("drivers/");
-        File tempFile = new File(tempUrl.getPath() + File.separator + StringUtils.substringAfterLast(filePath, "/"));
-        if (tempFile.exists()) {
-            tempFile.delete();
+        File gzipFileFromUrl = new File(tempUrl.getPath() + File.separator + StringUtils.substringAfterLast(filePath, "/"));
+        if (gzipFileFromUrl.exists()) {
+            gzipFileFromUrl.delete();
         }
 
         try {
             URL url = new URL(filePath);
             URLConnection connection = url.openConnection();
             InputStream in = connection.getInputStream();
-            FileOutputStream fos = new FileOutputStream(tempFile);
+            FileOutputStream fos = new FileOutputStream(gzipFileFromUrl);
             byte[] buf = new byte[512];
             while (true) {
                 int len = in.read(buf);
@@ -162,10 +162,7 @@ public class Manager {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tempFile.setWritable(true);
-        tempFile.setExecutable(true);
-        tempFile.setReadable(true);
-        return tempFile;
+        return gzipFileFromUrl;
     }
 
 }
