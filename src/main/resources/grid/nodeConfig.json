@@ -21,12 +21,6 @@
       "browserName": "internet explorer",
       "maxInstances": 1,
       "seleniumProtocol": "WebDriver"
-    },
-    {
-      "browserName": "phantomjs",
-      "maxInstances": 10,
-      "platform": "ANY",
-      "seleniumProtocol": "WebDriver"
     }
   ],
   "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
