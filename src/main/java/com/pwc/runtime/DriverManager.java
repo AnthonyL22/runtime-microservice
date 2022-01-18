@@ -220,7 +220,7 @@ public class DriverManager extends Manager {
     }
 
     public void setChromeUrl(URL chromeUrl) {
-        this.chromeUrl = chromeUrl;
+        DriverManager.chromeUrl = chromeUrl;
     }
 
     public static URL getSeleniumUrl() {
@@ -228,7 +228,7 @@ public class DriverManager extends Manager {
     }
 
     public void setIeUrl(URL ieUrl) {
-        this.seleniumUrl = ieUrl;
+        seleniumUrl = ieUrl;
     }
 
     public static URL getGeckoUrl() {
