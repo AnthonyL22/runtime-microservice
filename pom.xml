@@ -3,7 +3,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.pacificwebconsulting.runtime</groupId>
   <artifactId>runtime-microservice</artifactId>
-  <version>1.0.55-SNAPSHOT</version>
+  <version>1.0.59-SNAPSHOT</version>
   <name>Runtime Microservice</name>
   <description>Runtime web drivers and GRID components microservice</description>
   <url>https://github.com/AnthonyL22/runtime-microservice</url>
@@ -39,16 +39,16 @@
   </distributionManagement>
   <properties>
     <commons.lang.version>2.6</commons.lang.version>
-    <core-microservice.version>2.0.86</core-microservice.version>
+    <core-microservice.version>2.0.95</core-microservice.version>
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>101.0.4951.15/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>101.0.4951.15/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win64>101.0.4951.15/chromedriver_win32.zip</driver.key.chrome.win64>
-    <driver.key.edge.mac64>100.0.1185.39/edgedriver_mac64.zip</driver.key.edge.mac64>
-    <driver.key.edge.win64>100.0.1185.39/edgedriver_win64.zip</driver.key.edge.win64>
-    <driver.key.gecko.linux64>v0.30.0/geckodriver-v0.30.0-linux64.tar.gz</driver.key.gecko.linux64>
-    <driver.key.gecko.mac64>v0.30.0/geckodriver-v0.30.0-macos.tar.gz</driver.key.gecko.mac64>
-    <driver.key.gecko.win64>v0.30.0/geckodriver-v0.30.0-win64.zip</driver.key.gecko.win64>
+    <driver.key.chrome.linux64>103.0.5060.53/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>103.0.5060.53/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win64>103.0.5060.53/chromedriver_win32.zip</driver.key.chrome.win64>
+    <driver.key.edge.mac64>102.0.1245.44/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>102.0.1245.44/edgedriver_win64.zip</driver.key.edge.win64>
+    <driver.key.gecko.linux64>v0.31.0/geckodriver-v0.31.0-linux64.tar.gz</driver.key.gecko.linux64>
+    <driver.key.gecko.mac64>v0.31.0/geckodriver-v0.31.0-macos.tar.gz</driver.key.gecko.mac64>
+    <driver.key.gecko.win64>v0.31.0/geckodriver-v0.31.0-win64.zip</driver.key.gecko.win64>
     <driver.key.ie.win32>3.150/IEDriverServer_Win32_.3.150.2.zip</driver.key.ie.win32>
     <driver.key.ie.win64>3.150/IEDriverServer_x64_.3.150.2.zip</driver.key.ie.win64>
     <driver.key.safari>2.53/SafariDriver.safariextz</driver.key.safari>
