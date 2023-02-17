@@ -21,6 +21,8 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class Manager {
 
@@ -93,40 +95,53 @@ public class Manager {
     /**
      * Unzip a zip archive and return single file of it's contents.
      *
-     * @param filePath path to ZIP file
+     * @param zipFilePath path to ZIP file
      * @return full file that was inside ZIP archive
      */
-    protected static File getFileFromArchive(String filePath) {
+    protected static File getFileFromArchive(String zipFilePath) {
 
         URL tempUrl = DriverManager.class.getClassLoader().getResource("drivers/");
-        File tempFile = new File(tempUrl.getPath() + File.separator + "temp");
-        if (tempFile.exists()) {
-            tempFile.delete();
-        }
+        String destDir = tempUrl.getPath() + "temp";
 
+        File dir = new File(destDir);
+        if (!dir.exists()) {
+            dir.mkdirs();
+        }
+        File newFile = null;
+        byte[] buffer = new byte[1024];
         try {
-            URL url = new URL(filePath);
+            URL url = new URL(zipFilePath);
             URLConnection connection = url.openConnection();
-            InputStream in = connection.getInputStream();
-            FileOutputStream fos = new FileOutputStream(tempFile);
-            byte[] buf = new byte[512];
-            while (true) {
-                int len = in.read(buf);
-                if (len == -1) {
+            InputStream fis = connection.getInputStream();
+            ZipInputStream zis = new ZipInputStream(fis);
+            ZipEntry ze = zis.getNextEntry();
+            while (ze != null) {
+                String fileName = ze.getName();
+                if (!StringUtils.containsIgnoreCase(fileName, "LICENSE")) {
+                    newFile = new File(destDir + File.separator + fileName);
+                    System.out.println("Unzipping file to " + newFile.getAbsolutePath());
+                    new File(newFile.getParent()).mkdirs();
+                    FileOutputStream fos = new FileOutputStream(newFile);
+                    int len;
+                    while ((len = zis.read(buffer)) > 0) {
+                        fos.write(buffer, 0, len);
+                    }
+                    fos.close();
+                    zis.closeEntry();
                     break;
                 }
-                fos.write(buf, 0, len);
             }
-            in.close();
-            fos.flush();
-            fos.close();
+            zis.closeEntry();
+            zis.close();
+            fis.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        tempFile.setWritable(true);
-        tempFile.setExecutable(true);
-        tempFile.setReadable(true);
-        return tempFile;
+        newFile.setWritable(true);
+        newFile.setExecutable(true);
+        newFile.setReadable(true);
+        return newFile;
+
     }
 
     /**

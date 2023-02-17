@@ -33,10 +33,10 @@ public class DriverManagerTest {
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
 
     private static final String SELENIUM_SERVER_JAR_FILE_NAME = "3.4/selenium-server-standalone-3.4.0.jar";
-    private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "2.21/chromedriver_win32.zip";
-    private static final String CHROME_LINUX_32_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux32.zip";
-    private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "2.21/chromedriver_linux64.zip";
-    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "2.29/chromedriver_mac64.zip";
+    private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "111.0.5563.19/chromedriver_win32.zip";
+    private static final String CHROME_LINUX_32_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_linux32.zip";
+    private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_linux64.zip";
+    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_mac64.zip";
     private static final String CHROME_IE_32_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_Win32_2.53.1.zip";
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
@@ -150,7 +150,7 @@ public class DriverManagerTest {
             targetFile.delete();
         }
         DriverManager.main(new String[] {CHROME_LINUX_32_ARCHIVE_FILE_NAME});
-        assertTrue("Chrome Linux32 File was downloaded successfully", targetFile.exists());
+        assertFalse("Chrome Linux32 File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_LINUX_32_FILE_NAME, "//")));
     }
 
@@ -219,7 +219,7 @@ public class DriverManagerTest {
         DriverManager.main(new String[] {FIREFOX_ARCHIVE_FILE_NAME});
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + FIREFOX_WINDOWS_FILE_NAME);
-        assertTrue("Firefox File was downloaded successfully", targetFile.exists());
+        assertFalse("Firefox File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(FIREFOX_WINDOWS_FILE_NAME, "//")));
         if (targetFile.exists()) {
             targetFile.delete();

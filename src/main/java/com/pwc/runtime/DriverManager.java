@@ -12,8 +12,6 @@ import java.util.HashMap;
 import java.util.Properties;
 import java.util.regex.Pattern;
 import java.util.zip.GZIPInputStream;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
 
 public class DriverManager extends Manager {
 
@@ -145,10 +143,7 @@ public class DriverManager extends Manager {
             if (StringUtils.containsIgnoreCase(url.toString(), "zip")) {
 
                 File downloadedFile = getFileFromArchive(url.toString());
-
-                byte[] buffer = new byte[BUFFER_SIZE];
-                ZipInputStream zipInputStream = new ZipInputStream(new FileInputStream(downloadedFile));
-                ZipEntry zipEntry = zipInputStream.getNextEntry();
+                downloadedFile.renameTo(targetFile);
 
                 if (!targetFile.exists()) {
                     targetFile.getParentFile().mkdirs();
@@ -157,24 +152,7 @@ public class DriverManager extends Manager {
                     targetFile.setWritable(true);
                 }
 
-                System.out.println("Unzipping and creating file : " + targetFile.getAbsoluteFile());
-                while (zipEntry != null) {
-
-                    FileOutputStream fileOutputStream = new FileOutputStream(targetFile);
-                    int length;
-                    while ((length = zipInputStream.read(buffer)) > 0) {
-                        fileOutputStream.write(buffer, 0, length);
-                    }
-                    fileOutputStream.close();
-                    zipEntry = zipInputStream.getNextEntry();
-                }
-
-                zipInputStream.closeEntry();
-                zipInputStream.close();
-
-                if (downloadedFile.exists()) {
-                    downloadedFile.delete();
-                }
+                System.out.println("Unzipping and creating file : " + downloadedFile.getAbsoluteFile());
 
             } else if (StringUtils.containsIgnoreCase(url.toString(), ".gz")) {
 

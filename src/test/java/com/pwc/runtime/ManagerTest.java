@@ -50,7 +50,7 @@ public class ManagerTest {
     @Test
     public void getFileFromZipArchiveTest() {
         File result = Manager.getFileFromArchive(mockGoogleAPIUrl + baseKey);
-        assertEquals("temp", result.getName());
+        assertEquals("chromedriver.exe", result.getName());
     }
 
     @Test
