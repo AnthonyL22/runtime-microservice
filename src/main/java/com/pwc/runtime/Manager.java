@@ -117,7 +117,7 @@ public class Manager {
             ZipEntry ze = zis.getNextEntry();
             while (ze != null) {
                 String fileName = ze.getName();
-                if (!StringUtils.containsIgnoreCase(fileName, "LICENSE")) {
+                if (!StringUtils.containsIgnoreCase(fileName, "LICENSE") && !StringUtils.containsIgnoreCase(fileName, "NOTES")) {
                     newFile = new File(destDir + File.separator + fileName);
                     System.out.println("Unzipping file to " + newFile.getAbsolutePath());
                     new File(newFile.getParent()).mkdirs();
@@ -129,6 +129,8 @@ public class Manager {
                     fos.close();
                     zis.closeEntry();
                     break;
+                } else {
+                    ze = zis.getNextEntry();
                 }
             }
             zis.closeEntry();

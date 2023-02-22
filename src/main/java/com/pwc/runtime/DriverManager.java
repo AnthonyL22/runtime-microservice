@@ -39,7 +39,7 @@ public class DriverManager extends Manager {
     private static final String EDGE_WIDOWS_FILE_NAME = "edge/edge_win.exe";
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
-    private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver_mac.exe";
+    private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver_win.exe";
     private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
     private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
     private static final int BUFFER_SIZE = 1024;
@@ -142,17 +142,16 @@ public class DriverManager extends Manager {
         try {
             if (StringUtils.containsIgnoreCase(url.toString(), "zip")) {
 
-                File downloadedFile = getFileFromArchive(url.toString());
-                downloadedFile.renameTo(targetFile);
-
                 if (!targetFile.exists()) {
                     targetFile.getParentFile().mkdirs();
-                    Thread.sleep(3000);
-                    targetFile.createNewFile();
-                    targetFile.setWritable(true);
                 }
 
-                System.out.println("Unzipping and creating file : " + downloadedFile.getAbsoluteFile());
+                File downloadedTempFile = getFileFromArchive(url.toString());
+                downloadedTempFile.renameTo(targetFile);
+                Thread.sleep(3000);
+                targetFile.setWritable(true);
+
+                System.out.println("Unzipping and creating file : " + downloadedTempFile.getAbsoluteFile());
 
             } else if (StringUtils.containsIgnoreCase(url.toString(), ".gz")) {
 

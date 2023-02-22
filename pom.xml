@@ -44,11 +44,11 @@
     <driver.key.chrome.linux64>110.0.5481.77/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>110.0.5481.77/chromedriver_mac64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win64>110.0.5481.77/chromedriver_win32.zip</driver.key.chrome.win64>
-    <driver.key.edge.mac64>109.0.1518.78/edgedriver_mac64.zip</driver.key.edge.mac64>
-    <driver.key.edge.win64>109.0.1518.78/edgedriver_win64.zip</driver.key.edge.win64>
-    <driver.key.gecko.linux64>v0.32.1/geckodriver-v0.32.1-linux64.tar.gz</driver.key.gecko.linux64>
-    <driver.key.gecko.mac64>v0.32.1/geckodriver-v0.32.1-macos.tar.gz</driver.key.gecko.mac64>
-    <driver.key.gecko.win64>v0.32.1/geckodriver-v0.32.1-win64.zip</driver.key.gecko.win64>
+    <driver.key.edge.mac64>110.0.1587.50/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>110.0.1587.50/edgedriver_win64.zip</driver.key.edge.win64>
+    <driver.key.gecko.linux64>v0.32.2/geckodriver-v0.32.2-linux64.tar.gz</driver.key.gecko.linux64>
+    <driver.key.gecko.mac64>v0.32.2/geckodriver-v0.32.2-macos.tar.gz</driver.key.gecko.mac64>
+    <driver.key.gecko.win64>v0.32.2/geckodriver-v0.32.2-win64.zip</driver.key.gecko.win64>
     <driver.key.ie.win32>3.150/IEDriverServer_Win32_3.150.0.zip</driver.key.ie.win32>
     <driver.key.ie.win64>3.150/IEDriverServer_x64_3.150.0.zip</driver.key.ie.win64>
     <driver.key.safari>2.53/SafariDriver.safariextz</driver.key.safari>

@@ -43,8 +43,8 @@ public class DriverManagerTest {
     private static final String FIREFOX_ARCHIVE_FILE_NAME = "v0.31.0/geckodriver-v0.31.0-win64.zip";
     private static final String FIREFOX_ARCHIVE_MAC_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-macos.tar.gz";
     private static final String FIREFOX_ARCHIVE_LINUX_FILE_NAME = "v0.24.0/geckodriver_mac-v0.24.0-linux64.tar.gz";
-    private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_win64.zip";
-    private static final String EDGE_MAC_ARCHIVE_FILE_NAME = "92.0.902.55/edgedriver_mac64.zip";
+    private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "110.0.1587.50/edgedriver_win64.zip";
+    private static final String EDGE_MAC_ARCHIVE_FILE_NAME = "110.0.1587.50/edgedriver_mac64.zip";
 
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
