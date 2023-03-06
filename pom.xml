@@ -41,9 +41,9 @@
     <commons.lang.version>2.6</commons.lang.version>
     <core-microservice.version>2.0.103</core-microservice.version>
     <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>110.0.5481.77/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>110.0.5481.77/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win64>110.0.5481.77/chromedriver_win32.zip</driver.key.chrome.win64>
+    <driver.key.chrome.linux64>111.0.5563.41/chromedriver_linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>111.0.5563.41/chromedriver_mac64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win64>111.0.5563.41/chromedriver_win32.zip</driver.key.chrome.win64>
     <driver.key.edge.mac64>110.0.1587.50/edgedriver_mac64.zip</driver.key.edge.mac64>
     <driver.key.edge.win64>110.0.1587.50/edgedriver_win64.zip</driver.key.edge.win64>
     <driver.key.gecko.linux64>v0.32.2/geckodriver-v0.32.2-linux64.tar.gz</driver.key.gecko.linux64>
