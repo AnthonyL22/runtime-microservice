@@ -44,8 +44,8 @@
     <driver.key.chrome.linux64>113.0.5672.24/chromedriver_linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>113.0.5672.24/chromedriver_mac64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win64>113.0.5672.24/chromedriver_win32.zip</driver.key.chrome.win64>
-    <driver.key.edge.mac64>111.0.1661.54/edgedriver_mac64.zip</driver.key.edge.mac64>
-    <driver.key.edge.win64>111.0.1661.54/edgedriver_win64.zip</driver.key.edge.win64>
+    <driver.key.edge.mac64>114.0.1791.0/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>114.0.1791.0/edgedriver_win64.zip</driver.key.edge.win64>
     <driver.key.gecko.linux64>v0.32.2/geckodriver-v0.32.2-linux64.tar.gz</driver.key.gecko.linux64>
     <driver.key.gecko.mac64>v0.32.2/geckodriver-v0.32.2-macos.tar.gz</driver.key.gecko.mac64>
     <driver.key.gecko.win64>v0.32.2/geckodriver-v0.32.2-win64.zip</driver.key.gecko.win64>
