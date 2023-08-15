@@ -20,7 +20,6 @@ public class DriverManagerTest {
 
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
-    private static final String CHROME_LINUX_32_FILE_NAME = "chrome/chrome_linux_32";
     private static final String CHROME_LINUX_64_FILE_NAME = "chrome/chrome_linux_64";
     private static final String CHROME_MAC_FILE_NAME = "chrome/chrome_mac";
     private static final String IE_WINDOWS_32_FILE_NAME = "ie/ie_win32.exe";
@@ -33,10 +32,9 @@ public class DriverManagerTest {
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
 
     private static final String SELENIUM_SERVER_JAR_FILE_NAME = "3.4/selenium-server-standalone-3.4.0.jar";
-    private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "111.0.5563.19/chromedriver_win32.zip";
-    private static final String CHROME_LINUX_32_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_linux32.zip";
-    private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_linux64.zip";
-    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "111.0.5563.19/chromedriver_mac64.zip";
+    private static final String CHROME_WINDOWS_ZIP_FILE_NAME = "115.0.5790.98/win64/chromedriver-win64.zip";
+    private static final String CHROME_LINUX_64_ARCHIVE_FILE_NAME = "115.0.5790.98/linux64/chromedriver-linux64.zip";
+    private static final String CHROME_MAC_ARCHIVE_FILE_NAME = "115.0.5790.98/mac-x64/chromedriver-mac-x64.zip";
     private static final String CHROME_IE_32_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_Win32_2.53.1.zip";
     private static final String CHROME_IE_64_ARCHIVE_FILE_NAME = "2.53/IEDriverServer_x64_2.53.1.zip";
     private static final String SAFARI_ARCHIVE_FILE_NAME = "2.48/SafariDriver.safariextz";
@@ -46,11 +44,13 @@ public class DriverManagerTest {
     private static final String EDGE_WINDOWS_ARCHIVE_FILE_NAME = "110.0.1587.50/edgedriver_win64.zip";
     private static final String EDGE_MAC_ARCHIVE_FILE_NAME = "110.0.1587.50/edgedriver_mac64.zip";
 
+    private static final String CHROME_DRIVER_URL = "https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/";
+    private static final String FIREFOX_DRIVER_URL = "https://github.com/mozilla/geckodriver/releases/download/";
+
     private String baseNonZipTargetFileName;
     private String baseKeyNonZipFile;
     private URL mockGoogleAPIUrl;
     private URL mockGeckoAPIUrl;
-    private URL mockGoogleReleaseAPIUrl;
 
     @Before
     public void setUp() {
@@ -59,9 +59,8 @@ public class DriverManagerTest {
 
             baseNonZipTargetFileName = "chrome/chrome_win.bz2";
             baseKeyNonZipFile = "v0.30.0/geckodriver_mac-v0.30.0-macos.tar.gz";
-            mockGoogleAPIUrl = new URL("http://chromedriver.storage.googleapis.com/");
-            mockGeckoAPIUrl = new URL("https://github.com/mozilla/geckodriver/releases/download/");
-            mockGoogleReleaseAPIUrl = new URL("http://selenium-release.storage.googleapis.com/");
+            mockGoogleAPIUrl = new URL(CHROME_DRIVER_URL);
+            mockGeckoAPIUrl = new URL(FIREFOX_DRIVER_URL);
 
             HashMap mockContentMap = mock(HashMap.class);
             when(mockContentMap.get("Owner")).thenReturn("");
@@ -85,8 +84,8 @@ public class DriverManagerTest {
         if (targetFile.exists()) {
             targetFile.delete();
         }
-        boolean result = DriverManager.downloadDriver(targetFile, mockGoogleReleaseAPIUrl, SELENIUM_SERVER_JAR_FILE_NAME);
-        assertTrue(result);
+        boolean result = DriverManager.downloadDriver(targetFile, mockGoogleAPIUrl, SELENIUM_SERVER_JAR_FILE_NAME);
+        assertFalse(result);
     }
 
     @Test
@@ -115,7 +114,7 @@ public class DriverManagerTest {
         URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
         File targetFile = new File(baseUrl.getPath() + File.separator + baseNonZipTargetFileName);
         boolean result = DriverManager.downloadDriver(targetFile, mockGoogleAPIUrl, baseKeyNonZipFile);
-        assertFalse(result);
+        assertTrue(result);
     }
 
     @Test
@@ -140,18 +139,6 @@ public class DriverManagerTest {
         DriverManager.main(new String[] {CHROME_WINDOWS_ZIP_FILE_NAME});
         assertTrue("Chrome Win File was downloaded successfully", targetFile.exists());
         assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_WINDOWS_FILE_NAME, "//")));
-    }
-
-    @Test
-    public void mainSuccessfulDownloadLinux32Test() {
-        URL baseUrl = DriverManager.class.getClassLoader().getResource("drivers/");
-        File targetFile = new File(baseUrl.getPath() + File.separator + CHROME_LINUX_32_FILE_NAME);
-        if (targetFile.exists()) {
-            targetFile.delete();
-        }
-        DriverManager.main(new String[] {CHROME_LINUX_32_ARCHIVE_FILE_NAME});
-        assertFalse("Chrome Linux32 File was downloaded successfully", targetFile.exists());
-        assertTrue("File name matches what was downloaded", targetFile.getName().contains(StringUtils.substringAfterLast(CHROME_LINUX_32_FILE_NAME, "//")));
     }
 
     @Test

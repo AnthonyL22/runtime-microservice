@@ -22,13 +22,13 @@ feature requests. Anything else, such as questions for help in using the library
 # Technology
 
 This project is designed to have the flexibility of going to the open-source communities on the web to dynamically fetch 
-Selenium Drivers (for example: http://chromedriver.storage.googleapis.com/).  Rather than have hard-coded, potentially 
+Selenium Drivers (for example: https://googlechromelabs.github.io/chrome-for-testing/).  Rather than have hard-coded, potentially 
 stale drivers embedded in your system, this microservice dynamically downloads, unzips, and integrates the supported 
 Drivers used by Selenium in your project(s).  
 
 ## Driver APIs
 
-[Chrome Drivers](http://chromedriver.storage.googleapis.com/) 
+[Chrome Drivers](https://googlechromelabs.github.io/chrome-for-testing/) 
 
 [IE, Safari, Other Drivers](http://selenium-release.storage.googleapis.com/) 
 
@@ -41,24 +41,24 @@ rebuild.
  
 ```
     <!--Driver KEYS-->
-    <driver.key.chrome.linux32>2.33/chromedriver_linux32.zip</driver.key.chrome.linux32>
-    <driver.key.chrome.linux64>91.0.4472.19/chromedriver_linux64.zip</driver.key.chrome.linux64>
-    <driver.key.chrome.mac64>91.0.4472.19/chromedriver_mac64.zip</driver.key.chrome.mac64>
-    <driver.key.chrome.win64>91.0.4472.19/chromedriver_win32.zip</driver.key.chrome.win64>
-    <driver.key.edge.mac64>92.0.902.55/edgedriver_mac64.zip</driver.key.edge.mac64>
-    <driver.key.edge.win64>92.0.902.55/edgedriver_win64.zip</driver.key.edge.win64>
-    <driver.key.gecko.linux64>v0.29.1/geckodriver-v0.29.1-linux64.tar.gz</driver.key.gecko.linux64>
-    <driver.key.gecko.mac64>v0.29.1/geckodriver-v0.29.1-macos.tar.gz</driver.key.gecko.mac64>
-    <driver.key.gecko.win64>v0.29.1/geckodriver-v0.29.1-win64.zip</driver.key.gecko.win64>
-    <driver.key.ie.win32>3.14/IEDriverServer_Win32_3.14.0.zip</driver.key.ie.win32>
-    <driver.key.ie.win64>3.14/IEDriverServer_x64_3.14.0.zip</driver.key.ie.win64>
-    <driver.key.safari>2.48/SafariDriver.safariextz</driver.key.safari>
-    <driver.key.selenium.server.standalone>3.141/selenium-server-standalone-3.141.0.jar</driver.key.selenium.server.standalone>
+     <driver.key.chrome.linux64>116.0.5845.96/linux64/chromedriver-linux64.zip</driver.key.chrome.linux64>
+    <driver.key.chrome.mac64>116.0.5845.96/mac-x64/chromedriver-mac-x64.zip</driver.key.chrome.mac64>
+    <driver.key.chrome.win64>116.0.5845.96/win64/chromedriver-win64.zip</driver.key.chrome.win64>
+    <driver.key.edge.mac64>114.0.1823.82/edgedriver_mac64.zip</driver.key.edge.mac64>
+    <driver.key.edge.win64>114.0.1823.82/edgedriver_win64.zip</driver.key.edge.win64>
+    <driver.key.gecko.linux64>v0.32.2/geckodriver-v0.32.2-linux64.tar.gz</driver.key.gecko.linux64>
+    <driver.key.gecko.mac64>v0.32.2/geckodriver-v0.32.2-macos.tar.gz</driver.key.gecko.mac64>
+    <driver.key.gecko.win64>v0.32.2/geckodriver-v0.32.2-win64.zip</driver.key.gecko.win64>
+    <driver.key.ie.win32>3.150/IEDriverServer_Win32_3.150.0.zip</driver.key.ie.win32>
+    <driver.key.ie.win64>3.150/IEDriverServer_x64_3.150.0.zip</driver.key.ie.win64>
+    <driver.key.safari>2.53/SafariDriver.safariextz</driver.key.safari>
+    <driver.key.selenium.server.standalone>4.0/selenium-server-standalone-4.0.0-alpha-2.zip</driver.key.selenium.server.standalone>
 ```
 
 # Prerequisites
 
-1. Maven 3.x
+1. Java 11
+2. Maven 3.x
 
 # Maven Dependency
 

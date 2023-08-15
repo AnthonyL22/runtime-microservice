@@ -16,18 +16,16 @@ import java.util.zip.GZIPInputStream;
 public class DriverManager extends Manager {
 
     private static final Pattern SELENIUM_REGEX = Pattern.compile("^.*?selenium.*?$");
-    private static final Pattern CHROME_WINDOWS_REGEX = Pattern.compile("^.*?chrome.+?win32.*?$");
+    private static final Pattern CHROME_WINDOWS_REGEX = Pattern.compile("^.*?chrome.+?win64.*?$");
     private static final Pattern CHROME_LINUX_32_REGEX = Pattern.compile("^.*?chrome.+?linux32.*?$");
     private static final Pattern CHROME_LINUX_64_REGEX = Pattern.compile("^.*?chrome.+?linux64.*?$");
-    private static final Pattern CHROME_MAC_FILE_REGEX = Pattern.compile("^.*?chrome.+?mac64.*?$");
+    private static final Pattern CHROME_MAC_FILE_REGEX = Pattern.compile("^.*?chrome.+?mac-x64.*?$");
     private static final Pattern IE_WINDOWS_32_REGEX = Pattern.compile("^.*?IEDriver.+?Win32.*?$");
     private static final Pattern IE_WINDOWS_64_REGEX = Pattern.compile("^.*?IEDriver.+?x64.*?$");
     private static final Pattern SAFARI_REGEX = Pattern.compile("^.*?safari.*?$");
     private static final Pattern EDGE_WINDOWS_REGEX = Pattern.compile("^.*?edgedriver.+?win64.*?$");
     private static final Pattern EDGE_MAC_REGEX = Pattern.compile("^.*?edgedriver.+?mac.*?$");
     private static final Pattern GECKO_WINDOWS_64_REGEX = Pattern.compile("^.*?gecko.+?win64.*?$");
-    private static final Pattern GECKO_MAC_FILE_REGEX = Pattern.compile("^.*?gecko.+?maco.*?$");
-    private static final Pattern GECKO_LINUX_64_REGEX = Pattern.compile("^.*?gecko.+?linux.*?$");
 
     private static final String SELENIUM_SERVER_FILE_NAME = "selenium-server-standalone.jar";
     private static final String CHROME_WINDOWS_FILE_NAME = "chrome/chrome_win.exe";
@@ -40,9 +38,6 @@ public class DriverManager extends Manager {
     private static final String EDGE_MAC_FILE_NAME = "edge/edge_mac";
     private static final String SAFARI_FILE_NAME = "safari/safaridriver.safariextz";
     private static final String GECKO_WINDOWS_64_FILE_NAME = "firefox/geckodriver_win.exe";
-    private static final String GECKO_MAC_FILE_NAME = "firefox/geckodriver_mac";
-    private static final String GECKO_LINUX_64_FILE_NAME = "firefox/geckodriver_linux_64";
-    private static final int BUFFER_SIZE = 1024;
 
     private static URL chromeUrl;
     private static URL seleniumUrl;
