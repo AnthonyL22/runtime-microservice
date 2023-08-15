@@ -39,7 +39,7 @@
   </distributionManagement>
   <properties>
     <commons.lang.version>2.6</commons.lang.version>
-    <core-microservice.version>2.0.110</core-microservice.version>
+    <core-microservice.version>3.0.1</core-microservice.version>
     <driver.key.chrome.linux64>116.0.5845.96/linux64/chromedriver-linux64.zip</driver.key.chrome.linux64>
     <driver.key.chrome.mac64>116.0.5845.96/mac-x64/chromedriver-mac-x64.zip</driver.key.chrome.mac64>
     <driver.key.chrome.win64>116.0.5845.96/win64/chromedriver-win64.zip</driver.key.chrome.win64>
