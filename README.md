@@ -57,7 +57,8 @@ rebuild.
 
 # Prerequisites
 
-1. Maven 3.x
+1. Java 11
+2. Maven 3.x
 
 # Maven Dependency
 
